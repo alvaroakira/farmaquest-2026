@@ -1,0 +1,46 @@
+{
+  "lots": {
+    "1": {
+      "id": 1,
+      "displayName": "Lote 1",
+      "materialName": "Azitromicina di-hidratada",
+      "batchCode": "AZI-2401-A",
+      "stage": "RECEBIMENTO",
+      "qualityStatus": "EM_QUARENTENA",
+      "statusLabel": "Em quarentena",
+      "statusReason": "Aguardando inspeção e conferência documental.",
+      "visualEvidence": "Volumes íntegros no recebimento.",
+      "documentStatus": "PENDENTE_VERIFICACAO",
+      "eligibleForSampling": false,
+      "notes": "Lote usado para testar fluxo sem não conformidade aparente. Conteúdo preliminar."
+    },
+    "2": {
+      "id": 2,
+      "displayName": "Lote 2",
+      "materialName": "Azitromicina di-hidratada",
+      "batchCode": "AZI-2402-B",
+      "stage": "RECEBIMENTO",
+      "qualityStatus": "EM_QUARENTENA",
+      "statusLabel": "Em quarentena",
+      "statusReason": "Aguardando conferência documental.",
+      "visualEvidence": "Volumes sem avaria visível no recebimento.",
+      "documentStatus": "COA_INCOMPLETO_PRELIMINAR",
+      "eligibleForSampling": false,
+      "notes": "Hipótese preliminar: documentação incompleta deve gerar bloqueio documental, não rejeição automática."
+    },
+    "3": {
+      "id": 3,
+      "displayName": "Lote 3",
+      "materialName": "Azitromicina di-hidratada",
+      "batchCode": "AZI-2403-C",
+      "stage": "RECEBIMENTO",
+      "qualityStatus": "EM_QUARENTENA",
+      "statusLabel": "Em quarentena",
+      "statusReason": "Aguardando inspeção visual e decisão de bloqueio/segregação.",
+      "visualEvidence": "Volume com avaria física aparente.",
+      "documentStatus": "PENDENTE_VERIFICACAO",
+      "eligibleForSampling": false,
+      "notes": "Hipótese preliminar: avaria física deve gerar bloqueio/segregação/investigação, não rejeição automática."
+    }
+  }
+}
