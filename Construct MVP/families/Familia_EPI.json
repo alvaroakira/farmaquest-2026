@@ -1,0 +1,24 @@
+{
+	"name": "Familia_EPI",
+	"plugin-id": "Sprite",
+	"sid": 466273553355120,
+	"instanceVariables": [
+		{
+			"name": "Ordem",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 471595947757381
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"spr_EPI_Luvas",
+		"spr_EPI_Macacao",
+		"spr_EPI_Mascara",
+		"spr_EPI_Oculos",
+		"spr_EPI_Propes",
+		"spr_EPI_Touca"
+	]
+}

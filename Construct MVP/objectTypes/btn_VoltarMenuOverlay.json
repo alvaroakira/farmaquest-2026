@@ -1,0 +1,52 @@
+{
+	"name": "btn_VoltarMenuOverlay",
+	"plugin-id": "Sprite",
+	"sid": 706803802014187,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 164,
+						"height": 40,
+						"originX": 1.896341463414634,
+						"originY": 2.525,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6270619,
+						"collisionPoly": {
+							"points": [
+								0.042682926829268296,
+								0.025,
+								0.9939024390243902,
+								0.175,
+								0.9573170731707317,
+								0.975,
+								0.006097560975609756,
+								0.825
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 820880705423130,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,65 @@
+{
+	"name": "SPR_Paleteira",
+	"plugin-id": "Sprite",
+	"sid": 461852441025895,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fadein",
+			"sid": 464412984697987
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fadeout",
+			"sid": 842452963551769
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 640,
+						"height": 360,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3579638,
+						"collisionPoly": {
+							"points": [
+								0.8787878787878788,
+								0.0970873786407767,
+								0.9318181818181818,
+								0.10679611650485436,
+								0.9166666666666666,
+								0.8640776699029126,
+								0.1590909090909091,
+								0.8543689320388349,
+								0.16666666666666666,
+								0.6601941747572816
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 113070404341973,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"name": "ui_ScoreText",
+	"plugin-id": "Text",
+	"sid": 372222362709480,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Âncora",
+			"sid": 238098767798658
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 436441463024291
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Sharpen"
+		}
+	]
+}

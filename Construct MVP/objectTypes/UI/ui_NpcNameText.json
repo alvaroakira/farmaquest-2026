@@ -1,0 +1,15 @@
+{
+	"name": "ui_NpcNameText",
+	"plugin-id": "Text",
+	"sid": 598928969179497,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Afiar"
+		}
+	]
+}

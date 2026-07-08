@@ -1,0 +1,82 @@
+{
+	"name": "UI_Cursor_Lupa",
+	"plugin-id": "Sprite",
+	"sid": 246945404660509,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.512,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7632936,
+						"collisionPoly": {
+							"points": [
+								0.296,
+								0.0078125,
+								0.464,
+								0.0078125,
+								0.536,
+								0.03125,
+								0.584,
+								0.0546875,
+								0.704,
+								0.171875,
+								0.728,
+								0.21875,
+								0.992,
+								0.875,
+								0.992,
+								0.9453125,
+								0.944,
+								0.9921875,
+								0.872,
+								0.9921875,
+								0.176,
+								0.6875,
+								0.056,
+								0.5703125,
+								0.032,
+								0.5234375,
+								0.008,
+								0.453125,
+								0.008,
+								0.2890625,
+								0.032,
+								0.21875,
+								0.056,
+								0.171875,
+								0.176,
+								0.0546875,
+								0.224,
+								0.03125
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 266618168221778,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

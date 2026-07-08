@@ -1,0 +1,62 @@
+{
+	"name": "spr_ViraPaginaEsquerda",
+	"plugin-id": "Sprite",
+	"sid": 285291719068918,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 92,
+						"height": 95,
+						"originX": 0.5489130434782609,
+						"originY": 0.45263157894736844,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6599930,
+						"collisionPoly": {
+							"points": [
+								0.010869565217391304,
+								0.010526315789473684,
+								0.25,
+								0.010526315789473684,
+								0.9891304347826086,
+								0.2736842105263158,
+								0.9891304347826086,
+								0.9894736842105263,
+								0.2717391304347826,
+								0.9894736842105263,
+								0.20652173913043478,
+								0.968421052631579,
+								0.11956521739130435,
+								0.9263157894736842,
+								0.05434782608695652,
+								0.8631578947368421,
+								0.010869565217391304,
+								0.7789473684210526
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 461055614966032,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

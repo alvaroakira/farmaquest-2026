@@ -1,0 +1,15 @@
+{
+	"name": "txt_doc_btn1",
+	"plugin-id": "Text",
+	"sid": 112829468716392,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Sharpen"
+		}
+	]
+}

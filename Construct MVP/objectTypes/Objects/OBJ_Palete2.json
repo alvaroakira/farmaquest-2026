@@ -1,0 +1,108 @@
+{
+	"name": "OBJ_Palete2",
+	"plugin-id": "Sprite",
+	"sid": 918262048861109,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fadein",
+			"sid": 992350458106457
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fadeout",
+			"sid": 681437021652701
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 224,
+						"height": 72,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7685176,
+						"collisionPoly": {
+							"points": [
+								0.171875,
+								0.043478260869565216,
+								0.8203125,
+								0.043478260869565216,
+								0.96875,
+								0.5652173913043478,
+								0.9375,
+								1,
+								0.046875,
+								0.9782608695652174,
+								0.0234375,
+								0.5652173913043478
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 164491623250965,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 256,
+						"height": 114,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5861443,
+						"collisionPoly": {
+							"points": [
+								0.171875,
+								0.043478260869565216,
+								0.8203125,
+								0.043478260869565216,
+								0.96875,
+								0.5652173913043478,
+								0.9375,
+								1,
+								0.046875,
+								0.9782608695652174,
+								0.0234375,
+								0.5652173913043478
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 328989842930679,
+				"name": "Animation 2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

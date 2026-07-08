@@ -1,0 +1,9 @@
+{
+	"name": "input_NomeJogador",
+	"plugin-id": "TextBox",
+	"sid": 982870166097852,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": []
+}

@@ -1,0 +1,64 @@
+{
+	"name": "spr_Frasco_Amostra",
+	"plugin-id": "Sprite",
+	"sid": 994106876637983,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 56,
+						"height": 112,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8203964,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.03571428571428571,
+								0.7857142857142857,
+								0.03571428571428571,
+								0.8571428571428571,
+								0.05357142857142857,
+								0.9285714285714286,
+								0.08928571428571429,
+								0.8928571428571429,
+								0.9285714285714286,
+								0.7142857142857143,
+								0.9642857142857143,
+								0.32142857142857145,
+								0.9642857142857143,
+								0.10714285714285714,
+								0.9107142857142857,
+								0.10714285714285714,
+								0.08928571428571429,
+								0.17857142857142858,
+								0.05357142857142857
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 595796230246470,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

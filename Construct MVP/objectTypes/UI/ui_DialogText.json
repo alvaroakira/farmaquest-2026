@@ -1,0 +1,15 @@
+{
+	"name": "ui_DialogText",
+	"plugin-id": "Text",
+	"sid": 516305534395673,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Afiar"
+		}
+	]
+}

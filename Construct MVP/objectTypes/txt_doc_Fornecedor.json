@@ -1,0 +1,15 @@
+{
+	"name": "txt_doc_Fornecedor",
+	"plugin-id": "Text",
+	"sid": 247774548497377,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Sharpen"
+		}
+	]
+}

@@ -1,0 +1,2584 @@
+{
+	"name": "eGlobal",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "g_CurrentState",
+			"type": "string",
+			"initialValue": "\"\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 536722099293434
+		},
+		{
+			"eventType": "variable",
+			"name": "g_QualidadeScore",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 695330492112661
+		},
+		{
+			"eventType": "variable",
+			"name": "g_InspecaoVisualCompleta",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 233756321171892
+		},
+		{
+			"eventType": "variable",
+			"name": "g_IsPopupAtivo",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 637753286395822
+		},
+		{
+			"eventType": "variable",
+			"name": "g_PontuacaoAnterior",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 682531213110175
+		},
+		{
+			"eventType": "variable",
+			"name": "g_GameInitialized",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 188724101750497
+		},
+		{
+			"eventType": "variable",
+			"name": "g_PlayerName",
+			"type": "string",
+			"initialValue": "\"Estudante\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 896162151022587
+		},
+		{
+			"eventType": "variable",
+			"name": "g_IsMVPMenuOpen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 373368339895858
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 159523270048234
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "ui_ScoreText",
+					"sid": 981523331091960,
+					"parameters": {
+						"text": "\"Pontuação de Qualidade: \" & g_QualidadeScore"
+					}
+				}
+			],
+			"sid": 381422659345325
+		},
+		{
+			"eventType": "comment",
+			"text": "Controla o estado global do jogo e as transições."
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SYS_FSM",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Esta função centraliza todas as mudanças de estado. Em vez de espalhar ações \"Set g_CurrentState\" por todo o código, chamaremos f_SetState(\"NOVO_ESTADO\"). Isso torna o código mais legível e muito mais fácil de depurar."
+				},
+				{
+					"functionName": "f_SetState",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "newState",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 252271645443657
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 545829800280607,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"value": "newState"
+							}
+						}
+					],
+					"sid": 386188146510685
+				}
+			],
+			"sid": 349080038026715
+		},
+		{
+			"eventType": "comment",
+			"text": "Carrega e gerencia todos os dados de diálogo do arquivo dialogo.json"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SYS_Dialogue",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Esta sequência garante que, assim que o layout do jogo iniciar, o sistema requisitará o arquivo de diálogo. Quando o carregamento terminar, seu conteúdo será analisado e ficará pronto para ser usado pelo objeto "
+				},
+				{
+					"functionName": "f_StartDialogue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "sceneID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 630884918913999
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 755424369803025,
+							"parameters": {
+								"seconds": "0",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "OBJ_DialogController",
+							"sid": 932328685127077,
+							"parameters": {
+								"instance-variable": "IsActive",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "OBJ_DialogController",
+							"sid": 730781315415333,
+							"parameters": {
+								"instance-variable": "SceneID",
+								"value": "sceneID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "OBJ_DialogController",
+							"sid": 270609159399669,
+							"parameters": {
+								"instance-variable": "LineIndex",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UI_DialogBox_9patch",
+							"sid": 283683570963812,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_NpcNameText",
+							"sid": 327105120997196,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_DialogText",
+							"sid": 900812500293781,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_AdvanceArrow",
+							"sid": 629805043345697,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"callFunction": "f_UpdateDialogue",
+							"sid": 501632202342725
+						}
+					],
+					"sid": 625962352264374
+				},
+				{
+					"eventType": "comment",
+					"text": "Lê o JSON e atualiza os elementos de texto da UI com a fala atual."
+				},
+				{
+					"functionName": "f_UpdateDialogue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "OBJ_DialogController",
+							"sid": 211155992149116,
+							"parameters": {
+								"instance-variable": "IsTyping",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_AdvanceArrow",
+							"sid": 238223331437879,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ui_NpcNameText",
+							"sid": 542557355625187,
+							"parameters": {
+								"text": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")"
+							}
+						},
+						{
+							"id": "typewriter-text",
+							"objectClass": "ui_DialogText",
+							"sid": 164467888564188,
+							"parameters": {
+								"text": "replace(\r\n    JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".line\"),\r\n    \"{PlayerName}\",\r\n    g_PlayerName\r\n)",
+								"duration": "2"
+							}
+						}
+					],
+					"sid": 427114777347272,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Esta lógica garante que, toda vez que uma nova fala é exibida, o sistema verifica quem é o falante e mostra apenas o retrato correto."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 917089754489545,
+									"parameters": {
+										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
+										"comparison": 0,
+										"second-value": "\"An-Lu\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 722582179289195,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Helena",
+									"sid": 915976504527433,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 963672196752317,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 128593112210077
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 513738712155916,
+									"parameters": {
+										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
+										"comparison": 0,
+										"second-value": "\"Helena\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 168337147285949,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Helena",
+									"sid": 880936251973805,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SPR_Helena",
+									"sid": 382656020758260,
+									"parameters": {
+										"animation": "\"Neutral\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 854210080052638,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 580600143488352
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 730308745697275,
+									"parameters": {
+										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
+										"comparison": 0,
+										"second-value": "\"Leo Rossi\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 793796886896857,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Helena",
+									"sid": 730844917421754,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 880390360125616,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 921249219258486,
+									"parameters": {
+										"animation": "\"sem_braco\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 889742690180740
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "JSON",
+									"sid": 967207564293429,
+									"parameters": {
+										"path": "\"char\"",
+										"cmp": 0,
+										"value": "\"Leo Rossi\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_DialogController",
+									"sid": 913861042148519,
+									"parameters": {
+										"instance-variable": "SceneID",
+										"comparison": 0,
+										"value": "\"Amostragem_Conclusao\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_DialogController",
+									"sid": 160839186583083,
+									"parameters": {
+										"instance-variable": "LineIndex",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 680795822577729,
+									"parameters": {
+										"animation": "\"hold_frasco\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 783487588536486
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 578847934216268,
+									"parameters": {
+										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
+										"comparison": 0,
+										"second-value": "\"Leo Rossi\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_DialogController",
+									"sid": 435747648386200,
+									"parameters": {
+										"instance-variable": "LineIndex",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 356447839425757,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Helena",
+									"sid": 448239993504835,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 435755995826097,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 503432644368359,
+									"parameters": {
+										"animation": "\"sem_braco\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 728596275266391,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 924701044324063,
+									"parameters": {
+										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
+										"comparison": 0,
+										"second-value": "\"Leo Rossi\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_DialogController",
+									"sid": 850194209332886,
+									"parameters": {
+										"instance-variable": "LineIndex",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 481352425044932,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Helena",
+									"sid": 746647644915861,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 286189096087704,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_Leo_CQ",
+									"sid": 292726871458050,
+									"parameters": {
+										"animation": "\"hold_frasco\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 386747592871748,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-typewriter-text-finished",
+							"objectClass": "ui_DialogText",
+							"sid": 964499050008860
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "OBJ_DialogController",
+							"sid": 996801901808257,
+							"parameters": {
+								"instance-variable": "IsTyping",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_AdvanceArrow",
+							"sid": 359951312808466,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 641886516314325
+				},
+				{
+					"functionName": "f_EndMiniDialogue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "OBJ_DialogController",
+							"sid": 157814737887210,
+							"parameters": {
+								"instance-variable": "IsActive",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SPR_AnLu",
+							"sid": 752136802622973,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SPR_Helena",
+							"sid": 637958922310770,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Leo_CQ",
+							"sid": 926594576786455,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UI_DialogBox_9patch",
+							"sid": 265115452864180,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_DialogText",
+							"sid": 123644932221124,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_NpcNameText",
+							"sid": 647916110668803,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_AdvanceArrow",
+							"sid": 348235834330707,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 461485364489573
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 942120930967684,
+							"parameters": {
+								"object": "UI_DialogBox_9patch"
+							}
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 312020633123791,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [],
+					"sid": 349731272765805,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_DialogController",
+									"sid": 964990400148256,
+									"parameters": {
+										"instance-variable": "IsTyping"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_DialogController",
+									"sid": 137917815283831,
+									"parameters": {
+										"instance-variable": "IsActive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "typewriter-finish",
+									"objectClass": "ui_DialogText",
+									"sid": 742690112417088
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "OBJ_DialogController",
+									"sid": 128991755074532,
+									"parameters": {
+										"instance-variable": "IsTyping",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_AdvanceArrow",
+									"sid": 271048377686654,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 900900118894412
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 937541618475311
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_DialogController",
+									"sid": 285385916047312,
+									"parameters": {
+										"instance-variable": "IsActive"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 325334415367253,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_DialogController",
+											"sid": 866233427994525,
+											"parameters": {
+												"instance-variable": "IsTyping"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "OBJ_DialogController",
+											"sid": 833429274206119,
+											"parameters": {
+												"instance-variable": "LineIndex",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 232818347165698,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 217224445320503,
+													"parameters": {
+														"first-value": "obj_DialogController.LineIndex",
+														"comparison": 5,
+														"second-value": "JSON.ArraySize(\".\" & obj_DialogController.SceneID)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "SPR_AnLu",
+													"sid": 321689405891570,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "UI_DialogBox_9patch",
+													"sid": 757051502902997,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "ui_DialogText",
+													"sid": 465389902829574,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "ui_NpcNameText",
+													"sid": 579461551477553,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "ui_AdvanceArrow",
+													"sid": 929785502917748,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "OBJ_DialogController",
+													"sid": 210153512732540,
+													"parameters": {
+														"instance-variable": "IsActive",
+														"value": "false"
+													}
+												},
+												{
+													"callFunction": "f_SetState",
+													"sid": 727988592543530,
+													"parameters": [
+														"\"TASK_02_INSPECAO_VISUAL\" "
+													]
+												}
+											],
+											"sid": 351351519980624,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 889176319140252,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Inspecao_Avaria_Encontrada\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 507621819562634,
+															"parameters": [
+																"\"DECISAO_03_AVARIA\""
+															]
+														}
+													],
+													"sid": 314525082872986
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 741317380061413,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Decisao_Feedback_Correto\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 738657276244978,
+															"parameters": [
+																"\"CUTSCENE_04_SEGREGACAO\""
+															]
+														}
+													],
+													"sid": 254600348892960
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 974801585909142,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Decisao_Feedback_Incorreto\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 503716367692639,
+															"parameters": [
+																"\"CUTSCENE_04_SEGREGACAO\""
+															]
+														}
+													],
+													"sid": 803053357019385
+												},
+												{
+													"eventType": "comment",
+													"text": "Inicia o próximo diálogo em vez de terminar"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 202410082375059,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Pos_Segregacao_Helena\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_StartDialogue",
+															"sid": 890440277039931,
+															"parameters": [
+																"\"Pos_Segregacao_AnLu\""
+															]
+														}
+													],
+													"sid": 405784855992453
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 731065010149750,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Pos_Segregacao_AnLu\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "hotspot_Barril_Danificado",
+															"sid": 984344777768883,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "hotspot_Barril_Intacto_1",
+															"sid": 199259706063378,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "hotspot_Barril_Intacto_2",
+															"sid": 871271768664179,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"callFunction": "f_SetState",
+															"sid": 929301906064552,
+															"parameters": [
+																"\"TASK_05_INSPECAO_DOCUMENTAL\""
+															]
+														}
+													],
+													"sid": 328590378641542
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 470500187278023,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Doc_Feedback_CoA2_Reprovado\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 605764150425522,
+															"parameters": [
+																"\"CUTSCENE_06_REPROVACAO_DOCUMENTAL\""
+															]
+														}
+													],
+													"sid": 497222527686318
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 795250482482047,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Doc_Feedback_CoA1_Aprovado\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_EndMiniDialogue",
+															"sid": 874781429248225
+														}
+													],
+													"sid": 828004410337341
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 588976080418491,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Doc_Feedback_CoA2_Incorreto\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_EndMiniDialogue",
+															"sid": 583251123323189
+														}
+													],
+													"sid": 125542707099859
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 241839602920870,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Conclusao_Quarentena\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "OBJ_DialogController",
+															"sid": 934259660818320,
+															"parameters": {
+																"instance-variable": "LineIndex",
+																"comparison": 4,
+																"value": "3"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "start-fade",
+															"objectClass": "SPR_Sofia",
+															"sid": 761724991026684,
+															"behaviorType": "Fadeout"
+														},
+														{
+															"id": "start-fade",
+															"objectClass": "SPR_Paleteira",
+															"sid": 962460184885773,
+															"behaviorType": "Fadeout"
+														},
+														{
+															"id": "start-fade",
+															"objectClass": "SPR_BarricaNoPalete",
+															"sid": 430147696860204,
+															"behaviorType": "Fadeout"
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 945115261736221,
+															"parameters": {
+																"seconds": "0.3",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "SPR_Sofia",
+															"sid": 592381170926944,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "SPR_Paleteira",
+															"sid": 968980354045027,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "SPR_BarricaNoPalete",
+															"sid": 956314018754083,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-item",
+															"objectClass": "LocalStorage",
+															"sid": 913721900371558,
+															"disabled": true,
+															"parameters": {
+																"key": "\"ProximoEstado\"",
+																"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "spr_FadeTela",
+															"sid": 498521509184277,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "start-fade",
+															"objectClass": "spr_FadeTela",
+															"sid": 461572511969808,
+															"behaviorType": "Fadein"
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "txt_Localizacao",
+															"sid": 643371512176172,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "start-fade",
+															"objectClass": "txt_Localizacao",
+															"sid": 278351581002515,
+															"behaviorType": "Fadein"
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 500880453138368,
+															"parameters": {
+																"seconds": "1.0",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-item",
+															"objectClass": "LocalStorage",
+															"sid": 961035742616219,
+															"parameters": {
+																"key": "\"ProximoEstado\"",
+																"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+															}
+														},
+														{
+															"callFunction": "f_SetState",
+															"sid": 586488463770364,
+															"parameters": [
+																"\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+															]
+														},
+														{
+															"id": "go-to-layout",
+															"objectClass": "System",
+															"sid": 484480333083762,
+															"parameters": {
+																"layout": "lyl_Amostragem"
+															}
+														}
+													],
+													"sid": 766718181821462
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 747195403546999,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Amostragem_01_Intro\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 462239434949136,
+															"parameters": [
+																"\"TASK_AMOSTRAGEM_02_LIGAR_CAPELA\""
+															]
+														}
+													],
+													"sid": 613085593607392
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 324280639944772,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Amostragem_02_PreparacaoConcluida\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 336040693830389,
+															"parameters": [
+																"\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+															]
+														}
+													],
+													"sid": 349989656572409
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 752031216976523,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Amostragem_03_ColetaFeita\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 783953256453577,
+															"parameters": [
+																"\"TASK_AMOSTRAGEM_04_ROTULAGEM\""
+															]
+														}
+													],
+													"sid": 126595238297271
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 163933324249698,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Amostragem_04_Rotulagem\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 313387412092809,
+															"parameters": [
+																"\"CUTSCENE_09_ENTREGA_CQ\""
+															]
+														}
+													],
+													"sid": 762405000270113
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 910340308364422,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Amostragem_Conclusao\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "OBJ_DialogController",
+															"sid": 488487824921374,
+															"parameters": {
+																"instance-variable": "LineIndex",
+																"comparison": 0,
+																"value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "spr_Leo_CQ",
+															"sid": 899392688776521,
+															"parameters": {
+																"animation": "\"hold_frasco\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"callFunction": "f_EndMiniDialogue",
+															"sid": 116644068093613
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "spr_FadeTela",
+															"sid": 126852798941061,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "restart-fade",
+															"objectClass": "spr_FadeTela",
+															"sid": 905996986990851,
+															"behaviorType": "Fadein"
+														}
+													],
+													"sid": 890388021359166
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 909134484852129
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "f_UpdateDialogue",
+													"sid": 246545099768105
+												}
+											],
+											"sid": 540161678400849
+										}
+									]
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 175830837746775
+		},
+		{
+			"functionName": "f_UpdateDocumento",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 126198499306961,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 323509393809304,
+							"parameters": {
+								"instance-variable": "CoA_Atual",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Produto",
+							"sid": 622930976362198,
+							"parameters": {
+								"text": "\"Produto: Azitromicina di-hidratada\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Fornecedor",
+							"sid": 875497997355772,
+							"parameters": {
+								"text": "\"Fornecedor: PharmaChem\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Aspecto_Resultado",
+							"sid": 672273916006762,
+							"parameters": {
+								"text": "\"Conforme\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Teor_Resultado",
+							"sid": 115899880223515,
+							"parameters": {
+								"text": "\"99.5%\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_PH_Resultado",
+							"sid": 993891925174944,
+							"parameters": {
+								"text": "\"10.1\""
+							}
+						}
+					],
+					"sid": 883734873908678
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 613242396885738
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Produto",
+							"sid": 927744645345792,
+							"parameters": {
+								"text": "\"Produto: Azitromicina di-hidratada\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Fornecedor",
+							"sid": 879105075067789,
+							"parameters": {
+								"text": "\"Fornecedor: PharmaChem\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Aspecto_Resultado",
+							"sid": 858973220899536,
+							"parameters": {
+								"text": "\"Conforme\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "o campo fica em branco"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_Teor_Resultado",
+							"sid": 444816502234298,
+							"parameters": {
+								"text": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_PH_Resultado",
+							"sid": 161118140521680,
+							"parameters": {
+								"text": "\"10.1\""
+							}
+						}
+					],
+					"sid": 410603359048526
+				}
+			]
+		},
+		{
+			"functionName": "f_UpdatePaginaCoA",
+			"functionDescription": "Centro de controle visual da prancheta",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "f_UpdateMaxPageDoc",
+					"sid": 121315669090060
+				},
+				{
+					"callFunction": "f_UpdateBotoesCoA",
+					"sid": 499988462440405
+				}
+			],
+			"sid": 837096990041632,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 938039411400594,
+							"parameters": {
+								"first-value": "obj_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 960731206926512,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_PaginaCoA",
+							"sid": 107150790275035,
+							"parameters": {
+								"animation": "\"Mono_P1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 162430463569476,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 770852369390981,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_IndicadorCoA",
+							"sid": 638761884895519,
+							"parameters": {
+								"text": "\"Aba: Especificação\""
+							}
+						}
+					],
+					"sid": 297283038124586
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 836773742683124,
+							"parameters": {
+								"first-value": "obj_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 284850021000592,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_PaginaCoA",
+							"sid": 912234014596489,
+							"parameters": {
+								"animation": "\"CoA1_P1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 161756276458212,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 823181090960575,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_IndicadorCoA",
+							"sid": 473888716949329,
+							"parameters": {
+								"text": "\"Aba: CoA Lote 1 — pg. 1\""
+							}
+						}
+					],
+					"sid": 272692222560109
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 126976735817325,
+							"parameters": {
+								"first-value": "obj_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 258253158490341,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_PaginaCoA",
+							"sid": 499525534559931,
+							"parameters": {
+								"animation": "\"CoA1_P2\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 573520743884603,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 265374337641354,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_IndicadorCoA",
+							"sid": 531901486960372,
+							"parameters": {
+								"text": "\"Aba: CoA Lote 1 — pg. 2\""
+							}
+						}
+					],
+					"sid": 763496009626152
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 514856442011666,
+							"parameters": {
+								"first-value": "obj_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 362660681417459,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_PaginaCoA",
+							"sid": 471248575386900,
+							"parameters": {
+								"animation": "\"CoA2_P1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 179555300160220,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 353210701984496,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_IndicadorCoA",
+							"sid": 844376508912947,
+							"parameters": {
+								"text": "\"Aba: CoA Lote 2 — pg. 1\""
+							}
+						}
+					],
+					"sid": 752593127430351
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 111394274313991,
+							"parameters": {
+								"first-value": "obj_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 513581888849119,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_PaginaCoA",
+							"sid": 567957005634599,
+							"parameters": {
+								"animation": "\"CoA2_P2\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 895532670523337,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 786247926795299,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_doc_IndicadorCoA",
+							"sid": 599942169909116,
+							"parameters": {
+								"text": "\"Aba: CoA Lote 2 — pg. 2\""
+							}
+						}
+					],
+					"sid": 692995721921763
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 288074358324377,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 939115435928907,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 635013747717879
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 350570628031098
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaEsquerda",
+							"sid": 881681121722116,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 348962229304221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 989635175226466,
+							"parameters": {
+								"first-value": "obj_Prancheta.Pagina_Atual",
+								"comparison": 2,
+								"second-value": "OBJ_Prancheta.MaxPageAtual"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 110418384765232,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 750522203174134
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 426954080402977
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ViraPaginaDireita",
+							"sid": 761867655588462,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 360386511041331
+				}
+			]
+		},
+		{
+			"functionName": "f_UpdateBotoesCoA",
+			"functionDescription": "função central para decidir se os botões devem estar ativos ou bloqueados. ",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "btn_doc_Aprovar2",
+					"sid": 347051147791540,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"AdjustHSL\""
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "btn_doc_Reprovar2",
+					"sid": 981385406829359,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"AdjustHSL\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "btn_doc_Aprovar2",
+					"sid": 961619094573771,
+					"parameters": {
+						"animation": "\"Bloqueado\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "btn_doc_Reprovar2",
+					"sid": 412783977096471,
+					"parameters": {
+						"animation": "\"Bloqueado\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 249735066074621,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 435576369132137,
+							"parameters": {
+								"instance-variable": "CoA_Atual",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 294576116523635,
+							"parameters": {
+								"instance-variable": "HasViewedCoA1Page2"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 455507443782720,
+							"parameters": {
+								"instance-variable": "CoA1_Completo"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "btn_doc_Aprovar2",
+							"sid": 209816724335083,
+							"parameters": {
+								"animation": "\"Normal\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "btn_doc_Reprovar2",
+							"sid": 326959079398551,
+							"parameters": {
+								"animation": "\"Normal\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btn_doc_Aprovar2",
+							"sid": 142303826843141,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"AdjustHSL\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btn_doc_Reprovar2",
+							"sid": 335914847373521,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"AdjustHSL\""
+							}
+						}
+					],
+					"sid": 124335333341344
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 495191152357273,
+							"parameters": {
+								"instance-variable": "CoA_Atual",
+								"comparison": 0,
+								"value": "2"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 745318766252143,
+							"parameters": {
+								"instance-variable": "HasViewedCoA2Page2"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 802790602643312,
+							"parameters": {
+								"instance-variable": "CoA2_Completo"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "btn_doc_Aprovar2",
+							"sid": 215791868485155,
+							"parameters": {
+								"animation": "\"Normal\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "btn_doc_Reprovar2",
+							"sid": 473807319548315,
+							"parameters": {
+								"animation": "\"Normal\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btn_doc_Aprovar2",
+							"sid": 168408884452690,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"AdjustHSL\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btn_doc_Reprovar2",
+							"sid": 535123134878459,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"AdjustHSL\""
+							}
+						}
+					],
+					"sid": 866732958948299
+				}
+			]
+		},
+		{
+			"functionName": "f_MostrarPopup(texto)",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "texto",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 172480702679318
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 802869833228929,
+					"parameters": {
+						"variable": "g_IsPopupAtivo",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "popup_Texto",
+					"sid": 509692719137559,
+					"parameters": {
+						"text": "texto"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_BotaoOK",
+					"sid": 795721023514128,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_Texto",
+					"sid": 289176173115763,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_Fundo",
+					"sid": 323096399419686,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_AvatarNPC",
+					"sid": 805738723091157,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 670180674988448
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SYS_FeedbackPontuacao",
+			"description": "Controla a animação e o feedback visual do texto de pontuação.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 434702014855278
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 607032840709866,
+							"parameters": {
+								"variable": "g_QualidadeScore",
+								"comparison": 4,
+								"value": "g_PontuacaoAnterior"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-font-color",
+							"objectClass": "ui_ScoreText",
+							"sid": 786748642390518,
+							"parameters": {
+								"color": "rgbEx(0, 255, 0)"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "ui_ScoreText",
+							"sid": 573716932473879,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"pop_up\"",
+								"property": "scale",
+								"end-x": "1.2",
+								"end-y": "1.2",
+								"time": "0.1",
+								"ease": "easeoutquad",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 923156745579664,
+							"parameters": {
+								"variable": "g_PontuacaoAnterior",
+								"value": "g_QualidadeScore"
+							}
+						}
+					],
+					"sid": 311307507623493
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 552176574634503
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 287822082858201,
+							"parameters": {
+								"variable": "g_QualidadeScore",
+								"comparison": 2,
+								"value": "g_PontuacaoAnterior"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-font-color",
+							"objectClass": "ui_ScoreText",
+							"sid": 276289189782372,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "ui_ScoreText",
+							"sid": 557089062175677,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"pop_up\"",
+								"property": "scale",
+								"end-x": "1.2",
+								"end-y": "1.2",
+								"time": "0.1",
+								"ease": "easeoutquad",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 982468627991524,
+							"parameters": {
+								"variable": "g_PontuacaoAnterior",
+								"value": "g_QualidadeScore"
+							}
+						}
+					],
+					"sid": 952490258693793
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "ui_ScoreText",
+							"sid": 838203442773161,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"pop_up\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "ui_ScoreText",
+							"sid": 624346085133658,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"pop_down\"",
+								"property": "scale",
+								"end-x": "1.0",
+								"end-y": "1.0",
+								"time": "5",
+								"ease": "easeoutbounce",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 772207072242442,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "ui_ScoreText",
+							"sid": 626138394150096,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						}
+					],
+					"sid": 385096578837429
+				}
+			],
+			"sid": 952730924867934
+		},
+		{
+			"functionName": "f_UpdateMaxPageDoc",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 390158372980504,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 357653631215992,
+							"parameters": {
+								"first-value": "OBJ_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 907593892536631,
+							"parameters": {
+								"instance-variable": "MaxPageAtual",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 382813410949469
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 180150896081691,
+							"parameters": {
+								"first-value": "OBJ_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 795121445707175,
+							"parameters": {
+								"instance-variable": "MaxPageAtual",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 400329209477786
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 639063135784233,
+							"parameters": {
+								"first-value": "OBJ_Prancheta.CoA_Atual",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "OBJ_Prancheta",
+							"sid": 614584988755309,
+							"parameters": {
+								"instance-variable": "MaxPageAtual",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 388262724897240
+				}
+			]
+		}
+	],
+	"sid": 810161438032139
+}

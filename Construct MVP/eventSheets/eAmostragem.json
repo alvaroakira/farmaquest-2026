@@ -1,0 +1,2290 @@
+{
+	"name": "eAmostragem",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "b_ManometroOK",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 396061846567935
+		},
+		{
+			"eventType": "variable",
+			"name": "b_CapelaOK",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 261659600333586
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eGlobal"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 537624657278099
+				}
+			],
+			"actions": [
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 820830569131113,
+					"parameters": {
+						"tag": "\"dialogo\"",
+						"url": "\"dialogo.json\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "spr_FadeTela",
+					"sid": 802432753836988,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "spr_FadeTela",
+					"sid": 868487848073610,
+					"behaviorType": "Fadeout"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "txt_Localizacao",
+					"sid": 293592179018921,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "txt_Localizacao",
+					"sid": 617894737836952,
+					"behaviorType": "Fadeout"
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 410500196827445,
+					"parameters": {
+						"key": "\"ProximoEstado\""
+					}
+				},
+				{
+					"callFunction": "f_SetState",
+					"sid": 518731817378659,
+					"parameters": [
+						"LocalStorage.ItemValue"
+					]
+				},
+				{
+					"id": "remove-item",
+					"objectClass": "LocalStorage",
+					"sid": 681466996144376,
+					"parameters": {
+						"key": "\"ProximoEstado\""
+					}
+				},
+				{
+					"callFunction": "f_SetState",
+					"sid": 567191409354095,
+					"parameters": [
+						"\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+					]
+				}
+			],
+			"sid": 858565687212129
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 807605914995606,
+					"parameters": {
+						"tag": "\"dialogo\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 292962445727310,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 585068061191528
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 274796217321698,
+					"parameters": {
+						"object": "popup_BotaoOK"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 491260877863912,
+					"parameters": {
+						"variable": "g_IsPopupAtivo"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 731136446813966,
+					"parameters": {
+						"variable": "g_IsPopupAtivo",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_BotaoOK",
+					"sid": 117113077055387,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_Texto",
+					"sid": 886560573344300,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_Fundo",
+					"sid": 673582048853910,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "popup_AvatarNPC",
+					"sid": 871848852205720,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "BGsemitrans",
+					"sid": 221669085981554,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 497607076215897,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 926164896717647,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "obj_AmostragemController",
+							"sid": 804848489286563,
+							"parameters": {
+								"instance-variable": "EtapaPreparacao",
+								"comparison": 4,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "f_SetState",
+							"sid": 113645439159489,
+							"parameters": [
+								"\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+							]
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_Manometro",
+							"sid": 810846909984869,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BancadaCapela",
+							"sid": 562770091819552,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BotaoCapela",
+							"sid": 491617093863594,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Alcool70",
+							"sid": 867286107550409,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "anim_FluxoLaminar",
+							"sid": 147113079634139,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 786092496347870
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 735406687860533,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "obj_AmostragemController",
+							"sid": 497917513098344,
+							"parameters": {
+								"instance-variable": "FerramentaOK"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 947848026007845
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "f_SetState",
+							"sid": 657943711137487,
+							"parameters": [
+								"\"TASK_AMOSTRAGEM_04_ROTULAGEM\""
+							]
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_BandejaFerramentas",
+							"sid": 717442151810320,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Familia_Ferramentas",
+							"sid": 603688573186358,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 580507449366813,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 450229152072300,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_04_ROTULAGEM\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "obj_AmostragemController",
+							"sid": 483999479016064,
+							"parameters": {
+								"instance-variable": "EtapaEtiqueta"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 602042161434550
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 902118522088513,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_Etiqueta_Produto",
+							"sid": 573071838588847,
+							"parameters": {
+								"text": "\"Produto: Azitromicina (Lote: AZE-0825)\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 983964209239411,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 196866673586323,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_Etiqueta_Lote",
+							"sid": 496600997162468,
+							"parameters": {
+								"text": "\"Data: 17/11/2025 | Analista: (Seu Nome)\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 287460056910674,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_Etiqueta_Amostra_Fundo",
+							"sid": 209239103850413,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "txt_Etiqueta_Lote",
+							"sid": 858329194791516,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "txt_Etiqueta_Produto",
+							"sid": 950864866595912,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"callFunction": "f_MostrarPopup(texto)",
+							"sid": 592597223215103,
+							"parameters": [
+								"\"Etiqueta preenchida. Trabalho impecável! A rastreabilidade está garantida.\""
+							]
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "obj_AmostragemController",
+							"sid": 939489771119142,
+							"parameters": {
+								"instance-variable": "EtiquetaOK",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "obj_AmostragemController",
+							"sid": 451232999681044,
+							"parameters": {
+								"instance-variable": "EtapaEtiqueta",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 745773662610246
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 757650652522538,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_04_ROTULAGEM\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "obj_AmostragemController",
+							"sid": 457110760155097,
+							"parameters": {
+								"instance-variable": "EtiquetaOK"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "f_SetState",
+							"sid": 221730531187254,
+							"parameters": [
+								"\"CUTSCENE_09_ENTREGA_CQ\""
+							]
+						}
+					],
+					"sid": 759001494960815
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE_MVP",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 379618577455838,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 566269056800414
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Avatar",
+							"sid": 389108533373547,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Familia_EPI",
+							"sid": 521909312598022,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "bg_Antecamara_expanded",
+							"sid": 975633209793101,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "bg_SalaAmostragem",
+							"sid": 867628602646097,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "bg_SalaAmostragem",
+							"sid": 235398361045741,
+							"parameters": {
+								"animation": "\"Animation 7\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_Manometro",
+							"sid": 888622922749638,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BancadaCapela",
+							"sid": 864516852975751,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BotaoCapela",
+							"sid": 565211623593902,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Alcool70",
+							"sid": 864015416151328,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "anim_FluxoLaminar",
+							"sid": 396172567957917,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_BandejaFerramentas",
+							"sid": 774938927763884,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Familia_Ferramentas",
+							"sid": 263760583423531,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_BarricaAberta",
+							"sid": 580185003934559,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Frasco_Amostra",
+							"sid": 676609425813073,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_Fundo",
+							"sid": 804958536179770,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_BotaoOK",
+							"sid": 963084014275772,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_Texto",
+							"sid": 699741908155310,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_AvatarNPC",
+							"sid": 588996674360312,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 158724676633267,
+							"parameters": {
+								"variable": "g_IsPopupAtivo",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "f_StartDialogue",
+							"sid": 762057913051829,
+							"parameters": [
+								"\"Amostragem_01_Intro\""
+							]
+						}
+					],
+					"sid": 303857690344215
+				}
+			],
+			"sid": 294375068420816
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_AMOSTRAGEM_02_LIGAR_CAPELA",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 671229145131132,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_02_LIGAR_CAPELA\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 162732597853842
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BotaoCapela",
+							"sid": 488639502509661,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "hotspot_BotaoCapela",
+							"sid": 351430642291943,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_Manometro",
+							"sid": 273951433397471,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BancadaCapela",
+							"sid": 205352820552090,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Alcool70",
+							"sid": 705572291836839,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "anim_FluxoLaminar",
+							"sid": 906549456059465,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Leo_CQ",
+							"sid": 764310369658865,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 785024716468902
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 401693900475519,
+							"parameters": {
+								"object": "hotspot_BotaoCapela"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 321488611779443,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_02_LIGAR_CAPELA\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 739174025068925,
+							"parameters": {
+								"variable": "g_IsPopupAtivo"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "hotspot_BotaoCapela",
+							"sid": 804931544707419,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "hotspot_BotaoCapela",
+							"sid": 990627361844976,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "anim_FluxoLaminar",
+							"sid": 849405613115867,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "start-animation",
+							"objectClass": "anim_FluxoLaminar",
+							"sid": 566080127811220,
+							"parameters": {
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 915440412819539,
+							"parameters": {
+								"variable": "g_QualidadeScore",
+								"value": "5"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 828136580357928,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "f_StartDialogue",
+							"sid": 550410340287989,
+							"parameters": [
+								"\"Amostragem_02_PreparacaoConcluida\""
+							]
+						}
+					],
+					"sid": 811219725581506
+				}
+			],
+			"sid": 953398268875482
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE_backup",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 569548191601241,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 957782012194759,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 836532751190629
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_FadeTela",
+									"sid": 945062993138699,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "spr_FadeTela",
+									"sid": 642908406423488,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 751321209943696,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Avatar",
+									"sid": 972647123935453,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Familia_EPI",
+									"sid": 387970167750535,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "bg_Antecamara_expanded",
+									"sid": 921887912833579,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "bg_SalaAmostragem",
+									"sid": 382134812005062,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Manometro",
+									"sid": 252563566952104,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_BancadaCapela",
+									"sid": 456104984685706,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_BotaoCapela",
+									"sid": 414505522465578,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_Alcool70",
+									"sid": 922000815757847,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_Alcool70",
+									"sid": 689906925678722,
+									"parameters": {
+										"animation": "\"Ativo\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "obj_AmostragemController",
+									"sid": 522740777216623,
+									"parameters": {
+										"instance-variable": "EtapaPreparacao",
+										"value": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 191318311356701,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "spr_FadeTela",
+									"sid": 984803664823843,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 126154382411368,
+									"parameters": {
+										"layer": "\"lyr_UI_Popup\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"callFunction": "f_MostrarPopup(texto)",
+									"sid": 729449184338611,
+									"parameters": [
+										"\"Certo. Agora precisamos preparar a sala para a coleta. Devemos seguir 3 passos: verificar a pressão, limpar a capela e ligar o fluxo de ar.\""
+									]
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 471100722371706,
+									"parameters": [
+										"\"Amostragem_01_Intro\""
+									]
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "anim_FluxoLaminar",
+									"sid": 540425768358253,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 957707911084542,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 260332751273687
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 885030136604772,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_Alcool70",
+									"sid": 310952445074240,
+									"disabled": true,
+									"parameters": {
+										"animation": "\"Parado\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "textoGlobal",
+									"sid": 419525062042667,
+									"parameters": {
+										"text": "obj_AmostragemController.EtapaPreparacao"
+									}
+								}
+							],
+							"sid": 271786591333698,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 634799194014721,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spr_Alcool70",
+											"sid": 458586315500051,
+											"parameters": {
+												"animation": "\"Ativo\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 521361953015181,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 471324085961891,
+									"parameters": {
+										"object": "hotspot_Manometro"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 145330640039678,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 564208803547645,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 304584306865147,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 851691185334138,
+											"parameters": [
+												"\"Ótimo. A pressão da sala está positiva, como deveria. Isso impede que ar 'sujo' de fora entre aqui.\""
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "obj_AmostragemController",
+											"sid": 930165339681136,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 659123247287684
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 605487285384410
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 444819443183738,
+											"parameters": [
+												"\"A pressão é importante, mas já verificamos. Vamos focar na próxima etapa.\""
+											]
+										}
+									],
+									"sid": 453591100307902
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 403480745753138,
+									"parameters": {
+										"object": "spr_Alcool70"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 886893938089373,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 303114078478583,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 106701220364176,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 970207395875233,
+											"parameters": [
+												"\"Precisamos limpar, sim, mas por segurança, sempre verificamos a PRESSÃO da sala primeiro.\""
+											]
+										}
+									],
+									"sid": 418528002695328
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 521536977658446,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 905625444509560,
+											"parameters": [
+												"\"Correto. Limpar a bancada da capela com álcool 70% garante que a superfície está estéril antes de ligarmos o fluxo.\""
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "obj_AmostragemController",
+											"sid": 366144252846083,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"value": "3"
+											}
+										}
+									],
+									"sid": 234426095513694
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 545311710035526,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 878672714254299,
+											"parameters": [
+												"\"A limpeza já foi feita. Agora só falta o último passo.\""
+											]
+										}
+									],
+									"sid": 402879376737569
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 866846176047435,
+									"parameters": {
+										"object": "hotspot_BotaoCapela"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 947348336890091,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "obj_AmostragemController",
+									"sid": 434487446115384,
+									"parameters": {
+										"instance-variable": "EtapaPreparacao",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 885398271302526,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 284691708018882,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 2,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 921410487974970,
+											"parameters": [
+												"\"Não podemos ligar a capela ainda. Precisamos verificar a pressão e limpar a bancada primeiro, nessa ordem.\""
+											]
+										}
+									],
+									"sid": 659165935574765
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "obj_AmostragemController",
+											"sid": 997488729923865,
+											"parameters": {
+												"instance-variable": "EtapaPreparacao",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "anim_FluxoLaminar",
+											"sid": 414265325926725,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "start-animation",
+											"objectClass": "anim_FluxoLaminar",
+											"sid": 945688629577350,
+											"parameters": {
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 976582267505692,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 212252317557161,
+											"parameters": [
+												"\"Perfeito! Ambiente verificado, limpo e com fluxo laminar ativo. A sala está pronta para a coleta.\""
+											]
+										}
+									],
+									"sid": 557035185927845
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 604315615849590,
+									"parameters": {
+										"variable": "g_CurrentState",
+										"comparison": 0,
+										"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 172398888293722
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 535585679233867,
+									"parameters": [
+										"\"Amostragem_01_Intro\""
+									]
+								},
+								{
+									"type": "script",
+									"language": "typescript",
+									"script": []
+								}
+							],
+							"sid": 711705996533428,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 367216205590184
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 656009184063040,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 280816932482743
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "bg_SalaAmostragem",
+							"sid": 312392509954877,
+							"parameters": {
+								"animation": "\"Animation 6\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_BarricaAberta",
+							"sid": 388378337821177,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "spr_BarricaAberta",
+							"sid": 788252240183920,
+							"parameters": {
+								"animation": "\"Animation 2\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_BandejaFerramentas",
+							"sid": 752716646985611,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Familia_Ferramentas",
+							"sid": 851403216085661,
+							"disabled": true,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ferramenta_Calador",
+							"sid": 914566490474632,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ferramenta_Pipeta",
+							"sid": 850247693015303,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ferramenta_Espatula",
+							"sid": 372720567873553,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Leo_CQ",
+							"sid": 757740126390700,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 748924664159097,
+							"parameters": {
+								"variable": "g_IsPopupAtivo",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_ferramenta_Calador",
+							"sid": 499717578669413,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_ferramenta_Pipeta",
+							"sid": 265620063312044,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_ferramenta_Espatula",
+							"sid": 803763869952850,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "obj_AmostragemController",
+							"sid": 381782307598753,
+							"parameters": {
+								"instance-variable": "FerramentaOK",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 310366279162687,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 185235402550447,
+									"parameters": {
+										"object": "Familia_Ferramentas"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 806758807795221,
+									"parameters": {
+										"variable": "g_CurrentState",
+										"comparison": 0,
+										"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 302387068088534,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 346747630392022,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Familia_Ferramentas",
+											"sid": 709110347127705,
+											"parameters": {
+												"instance-variable": "NomeFerramenta",
+												"comparison": 0,
+												"value": "\"Pipeta\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 555294620757781,
+											"parameters": [
+												"\"Não exatamente. A pipeta é usada para coletar amostras de líquidos. Este insumo é um pó.\""
+											]
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 436509565554578,
+											"parameters": {
+												"variable": "g_QualidadeScore",
+												"value": "5"
+											}
+										}
+									],
+									"sid": 180603817101864,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Familia_Ferramentas",
+											"sid": 838601916488340,
+											"parameters": {
+												"instance-variable": "NomeFerramenta",
+												"comparison": 0,
+												"value": "\"Espatula\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 174675769041231,
+											"parameters": [
+												"\"Quase. A espátula coletaria apenas uma amostra da superfície. Para garantir que o lote todo está bom, precisamos de uma amostra de várias profundidades.\""
+											]
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 313535597989056,
+											"parameters": {
+												"variable": "g_QualidadeScore",
+												"value": "5"
+											}
+										}
+									],
+									"sid": 640979773892481,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Familia_Ferramentas",
+											"sid": 962357654803735,
+											"parameters": {
+												"instance-variable": "NomeFerramenta",
+												"comparison": 0,
+												"value": "\"Calador\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "spr_BandejaFerramentas",
+											"sid": 812600600454725,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Familia_Ferramentas",
+											"sid": 888851718264016,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 476922187568404,
+											"parameters": {
+												"variable": "g_QualidadeScore",
+												"value": "10"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 376497861851756,
+											"parameters": {
+												"seconds": "0.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "f_StartDialogue",
+											"sid": 184758084568452,
+											"parameters": [
+												"\"Amostragem_03_ColetaFeita\""
+											]
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 458732659982381,
+											"parameters": [
+												"\"Perfeito! O calador é a ferramenta ideal, pois ele perfura o pó e coleta uma amostra de diferentes níveis (topo, meio e fundo) de uma só vez.\""
+											]
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "obj_AmostragemController",
+											"sid": 768952373802133,
+											"parameters": {
+												"instance-variable": "FerramentaOK",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 536853494233444,
+									"disabled": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 762157282446790,
+							"parameters": {
+								"object": "spr_ferramenta_Pipeta"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 990691283949556,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 357930055847922,
+							"parameters": {
+								"variable": "g_IsPopupAtivo"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 262477232200407,
+							"parameters": {
+								"variable": "g_QualidadeScore",
+								"value": "5"
+							}
+						},
+						{
+							"callFunction": "f_MostrarPopup(texto)",
+							"sid": 220357588349660,
+							"parameters": [
+								"\"Não exatamente. A pipeta é usada para coletar amostras de líquidos. Este insumo é um pó.\""
+							]
+						}
+					],
+					"sid": 408536153249117
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 712128559508061,
+							"parameters": {
+								"object": "spr_ferramenta_Espatula"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 531170627447816,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 676933258525772,
+							"parameters": {
+								"variable": "g_IsPopupAtivo"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 497467313823065,
+							"parameters": {
+								"variable": "g_QualidadeScore",
+								"value": "5"
+							}
+						},
+						{
+							"callFunction": "f_MostrarPopup(texto)",
+							"sid": 630905422234223,
+							"parameters": [
+								"\"Quase. A espátula coletaria apenas material da superfície. Para uma amostra representativa, precisamos coletar material de diferentes profundidades da barrica.\""
+							]
+						}
+					],
+					"sid": 506732106801510
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 561770361421645,
+							"parameters": {
+								"object": "spr_ferramenta_Calador"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 146725187955583,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 801776745707565,
+							"parameters": {
+								"variable": "g_IsPopupAtivo"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "spr_BandejaFerramentas",
+							"sid": 916931446223772,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Familia_Ferramentas",
+							"sid": 132463834232711,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_ferramenta_Calador",
+							"sid": 177685533461763,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_ferramenta_Pipeta",
+							"sid": 590999389123262,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_ferramenta_Espatula",
+							"sid": 908180442153398,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ferramenta_Calador",
+							"sid": 673872738551569,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ferramenta_Pipeta",
+							"sid": 217777640982598,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_ferramenta_Espatula",
+							"sid": 996422238381784,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 497141639709137,
+							"parameters": {
+								"layer": "\"lyl_Amostragem_UI_03\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 476514199662532,
+							"parameters": {
+								"variable": "g_QualidadeScore",
+								"value": "10"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 221396290331581,
+							"parameters": {
+								"seconds": "0.3",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "f_StartDialogue",
+							"sid": 932467383619171,
+							"parameters": [
+								"\"Amostragem_03_ColetaFeita\""
+							]
+						}
+					],
+					"sid": 791141073171811
+				}
+			],
+			"sid": 343214459614739
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_AMOSTRAGEM_04_ROTULAGEM",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 930567194068980,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_AMOSTRAGEM_04_ROTULAGEM\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 806656937643168
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "bg_SalaAmostragem",
+							"sid": 928324832612075,
+							"parameters": {
+								"animation": "\"Animation 6\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Leo_CQ",
+							"sid": 441108170526426,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Frasco_Amostra",
+							"sid": 774715133063136,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_Etiqueta_Amostra_Fundo",
+							"sid": 706655003948038,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "txt_Etiqueta_Lote",
+							"sid": 188114273288232,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "txt_Etiqueta_Produto",
+							"sid": 615342066921053,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_Etiqueta_Lote",
+							"sid": 991769460969701,
+							"parameters": {
+								"text": "\"Lote: AZI20250601 | Amostra: AM-001\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_Etiqueta_Produto",
+							"sid": 931480667543872,
+							"parameters": {
+								"text": "\"Produto: Azitromicina di-hidratada\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 686061587160892,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "f_StartDialogue",
+							"sid": 298319565867237,
+							"parameters": [
+								"\"Amostragem_04_Rotulagem\""
+							]
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "obj_AmostragemController",
+							"sid": 949209227519182,
+							"parameters": {
+								"instance-variable": "EtapaEtiqueta",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "f_MostrarPopup(texto)",
+							"sid": 419885466933720,
+							"disabled": true,
+							"parameters": [
+								"\"Amostra coletada. Agora, precisamos preencher a etiqueta de rastreabilidade. Vou ditar os dados para você.\""
+							]
+						}
+					],
+					"sid": 202876577863242
+				}
+			],
+			"sid": 341858296837433
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CUTSCENE_09_ENTREGA_CQ",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 388266201364238,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"CUTSCENE_09_ENTREGA_CQ\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 211324647968934
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "bg_SalaAmostragem",
+							"sid": 858780169714832,
+							"parameters": {
+								"animation": "\"Animation 5\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Frasco_Amostra",
+							"sid": 404004009405864,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_Etiqueta_Amostra_Fundo",
+							"sid": 493753971303326,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "txt_Etiqueta_Lote",
+							"sid": 976171725733740,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "txt_Etiqueta_Produto",
+							"sid": 726179005674476,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "spr_Leo_CQ",
+							"sid": 403526987423318,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "spr_Leo_CQ",
+							"sid": 734764542001877,
+							"parameters": {
+								"animation": "\"hold_frasco\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 294939349446786,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "f_StartDialogue",
+							"sid": 458719456350693,
+							"parameters": [
+								"\"Amostragem_Conclusao\""
+							]
+						}
+					],
+					"sid": 441343653702801
+				}
+			],
+			"sid": 866803206609122
+		}
+	],
+	"sid": 440380181081597
+}

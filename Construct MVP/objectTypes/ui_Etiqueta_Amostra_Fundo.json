@@ -1,0 +1,60 @@
+{
+	"name": "ui_Etiqueta_Amostra_Fundo",
+	"plugin-id": "Sprite",
+	"sid": 115702995065120,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 214,
+						"height": 86,
+						"originX": 0.5186915887850467,
+						"originY": 0.45348837209302323,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5409742,
+						"collisionPoly": {
+							"points": [
+								0.03271028037383177,
+								0.011627906976744186,
+								0.9672897196261683,
+								0.011627906976744186,
+								0.9953271028037384,
+								0.08139534883720931,
+								0.9953271028037384,
+								0.9186046511627907,
+								0.9672897196261683,
+								0.9883720930232558,
+								0.03271028037383177,
+								0.9883720930232558,
+								0.004672897196261682,
+								0.9186046511627907,
+								0.004672897196261682,
+								0.08139534883720931
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 117919256156839,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

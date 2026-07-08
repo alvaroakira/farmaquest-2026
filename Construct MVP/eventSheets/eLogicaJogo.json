@@ -1,0 +1,3695 @@
+{
+	"name": "eLogicaJogo",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGlobal"
+		},
+		{
+			"eventType": "comment",
+			"text": "Lógica para a cutscene de introdução com a Dra. An-Lu."
+		},
+		{
+			"eventType": "comment",
+			"text": "\"Esta sequência garante que, assim que o layout do jogo iniciar, o sistema requisitará o arquivo de diálogo. Quando o carregamento terminar, seu conteúdo será analisado e ficará pronto para ser usado pelo objeto \""
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 931294008274688
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "SPR_AnLu",
+					"sid": 989161371244217,
+					"parameters": {
+						"animation": "\"Approval\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 280152344961615,
+					"parameters": {
+						"tag": "\"dialogo\"",
+						"url": "\"dialogo.json\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 777760818898575,
+					"parameters": {
+						"variable": "g_IsMVPMenuOpen",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 848126627841208,
+					"parameters": {
+						"layer": "\"OverlayMenu\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 186959264702213
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 377870801525395,
+					"parameters": {
+						"tag": "\"dialogo\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 946706726658082,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"callFunction": "f_SetState",
+					"sid": 872231353920638,
+					"parameters": [
+						"\"CUTSCENE_01_BOASVINDAS\""
+					]
+				},
+				{
+					"callFunction": "f_StartDialogue",
+					"sid": 807028773034253,
+					"parameters": [
+						"\"Recepcao_01_BoasVindas\""
+					]
+				}
+			],
+			"sid": 563812357831242
+		},
+		{
+			"eventType": "comment",
+			"text": "Every tick garante que, no exato momento em que a variável g_QualidadeScore mudar, a mudança será refletida na tela para o jogador."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 350220578800182
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "ui_ScoreText",
+					"sid": 174283503969065,
+					"parameters": {
+						"text": "\"Pontuação de Qualidade: \" & g_QualidadeScore"
+					}
+				}
+			],
+			"sid": 444532999823034
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CUTSCENE_01_BOASVINDAS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 493881873118483,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"CUTSCENE_01_BOASVINDAS\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "SPR_AnLu",
+							"sid": 170082152151172,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 201518590817996
+				}
+			],
+			"sid": 369976037893267
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_02_INSPECAO_VISUAL",
+			"description": "Lógica para a tarefa de inspeção visual dos barris.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 707685445615030,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_02_INSPECAO_VISUAL\"\n"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 598987347892854,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 477502843666591
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 845718619881981,
+									"parameters": {
+										"variable": "g_InspecaoVisualCompleta"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Barril_Danificado",
+									"sid": 920778677240949,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Barril_Intacto_1",
+									"sid": 434709253801941,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Barril_Intacto_2",
+									"sid": 520580324288105,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_InstrucaoInspecao",
+									"sid": 361693979896743,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 860903252929229
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Feedback de Cursor",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 993088639971212,
+											"parameters": {
+												"object": "hotspot_Barril_Danificado"
+											}
+										},
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 419816434468138,
+											"parameters": {
+												"object": "hotspot_Barril_Intacto_1"
+											}
+										},
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 541903196082052,
+											"parameters": {
+												"object": "hotspot_Barril_Intacto_2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-from-sprite",
+											"objectClass": "Mouse",
+											"sid": 274160729915211,
+											"parameters": {
+												"sprite": "UI_Cursor_Lupa"
+											}
+										}
+									],
+									"sid": 215311876360564,
+									"disabled": true,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 150567283636914,
+											"parameters": {
+												"object": "hotspot_Barril_Danificado"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 205163947147107,
+											"parameters": {
+												"object": "hotspot_Barril_Intacto_1"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 956740627097936,
+											"parameters": {
+												"object": "hotspot_Barril_Intacto_2"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 942208139438238,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 557554631167575,
+									"disabled": true
+								}
+							],
+							"sid": 796011349444665
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 141549371065807,
+									"parameters": {
+										"object": "hotspot_Barril_Intacto_1"
+									}
+								},
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 364808554915117,
+									"parameters": {
+										"object": "hotspot_Barril_Intacto_2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 616087856408868,
+									"parameters": {
+										"variable": "g_QualidadeScore",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "ui_FeedbackInspecao",
+									"sid": 415466128321729,
+									"parameters": {
+										"text": "\"Esta barrica parece intacta. Rótulo legível e lacre no lugar.\""
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "ui_FeedbackInspecao",
+									"sid": 742625527728292,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_FeedbackInspecao",
+									"sid": 121471382282556,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Correct_Circle",
+									"sid": 470597007323926,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Correct_Circle",
+									"sid": 416339691881715,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_BarricaMessage_9patch",
+									"sid": 247224694123522,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_BarricaMessage_9patch",
+									"sid": 780051435098868,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 415764676293988,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 760941892298379,
+									"parameters": {
+										"object": "hotspot_Barril_Danificado"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 636478493409663,
+									"parameters": {
+										"variable": "g_InspecaoVisualCompleta",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Barril_Danificado",
+									"sid": 815626665371490,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Barril_Intacto_1",
+									"sid": 833172202578734,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_Barril_Intacto_2",
+									"sid": 412522579319907,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_FeedbackInspecao",
+									"sid": 811314548215369,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Correct_Circle",
+									"sid": 112864146123639,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_BarricaMessage_9patch",
+									"sid": 976572482001946,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 596448947542306,
+									"parameters": [
+										"\"Inspecao_Avaria_Encontrada\""
+									]
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SPR_AnLu",
+									"sid": 381005504463365,
+									"parameters": {
+										"animation": "\"Neutral\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_InstrucaoInspecao",
+									"sid": 658525472480401,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 897404695317526
+						}
+					]
+				}
+			],
+			"sid": 685015262363283
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DECISAO_03_AVARIA",
+			"description": "Lógica para a decisão do jogador sobre o barril danificado.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 100698783593157,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"DECISAO_03_AVARIA\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 979296058905363,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 794055342792937
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "btn_Decisao_Segregar",
+									"sid": 810913845112634,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "btn_Decisao_Relevar",
+									"sid": 765579333924273,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_TextoBntDecisaoRelevar",
+									"sid": 444091255197987,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_TextoBntDecisaoSegregar",
+									"sid": 166500356454907,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_DialogBox_9patch",
+									"sid": 263428096713818,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_DialogText",
+									"sid": 849947360765844,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_NpcNameText",
+									"sid": 304071086281616,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 472259944054201,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 992980583924947
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 950433600146350,
+									"parameters": {
+										"object": "btn_Decisao_Segregar"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 422338806896151,
+									"parameters": {
+										"variable": "g_QualidadeScore",
+										"value": "10"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "btn_Decisao_Segregar",
+									"sid": 570041284049096,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "btn_Decisao_Relevar",
+									"sid": 507215504210751,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_TextoBntDecisaoSegregar",
+									"sid": 129210621114087,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_TextoBntDecisaoRelevar",
+									"sid": 763597465026286,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_DialogBox_9patch",
+									"sid": 687715034361804,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_DialogText",
+									"sid": 829831752301775,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_NpcNameText",
+									"sid": 438726326466615,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 999128600608053,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 211423782259909,
+									"parameters": [
+										"\"Decisao_Feedback_Correto\""
+									]
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SPR_AnLu",
+									"sid": 353493759840722,
+									"parameters": {
+										"animation": "\"Approval\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 285442819794367,
+									"parameters": {
+										"seconds": "10",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SPR_AnLu",
+									"sid": 427539095868688,
+									"parameters": {
+										"animation": "\"Neutral\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 163043667102869
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 975090256334521,
+									"parameters": {
+										"object": "btn_Decisao_Relevar"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 611705107925779,
+									"parameters": {
+										"variable": "g_QualidadeScore",
+										"value": "15"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "btn_Decisao_Segregar",
+									"sid": 970491574791862,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "btn_Decisao_Relevar",
+									"sid": 387425530752177,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_TextoBntDecisaoSegregar",
+									"sid": 178971221560389,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_TextoBntDecisaoRelevar",
+									"sid": 170476546910317,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_DialogBox_9patch",
+									"sid": 386186008625145,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_DialogText",
+									"sid": 423714410229410,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ui_NpcNameText",
+									"sid": 454717260741143,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_AnLu",
+									"sid": 953444003554997,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 470190855739237,
+									"parameters": [
+										"\"Decisao_Feedback_Incorreto\""
+									]
+								}
+							],
+							"sid": 562313627122222
+						}
+					]
+				}
+			],
+			"sid": 807681766004226
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CUTSCENE_04_SEGREGACAO",
+			"description": "Cutscene que mostra a equipe de Qualidade e Logística tratando a não conformidade.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 510089022715191,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"CUTSCENE_04_SEGREGACAO\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 552010840123689,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 761840661358480
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Sofia",
+									"sid": 804582697858183,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 175712233304340,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 157174620788341,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Tag_NaoConforme",
+									"sid": 203002674005714,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Tag_NaoConforme",
+									"sid": 791251522007840,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 592304085716310,
+									"parameters": {
+										"seconds": "1.3",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "OBJ_Barril_Damaged",
+									"sid": 466998452811537,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Tag_NaoConforme",
+									"sid": 145650352901463,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "OBJ_Palete3",
+									"sid": 561686542695224,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 321874147066200,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 152916872827262,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Helena",
+									"sid": 237589280130923,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Helena",
+									"sid": 987195158924150,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SPR_Helena",
+									"sid": 661519068605608,
+									"parameters": {
+										"animation": "\"Action\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 496026767315155,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 524674089474826,
+									"parameters": [
+										"\"Pos_Segregacao_Helena\""
+									]
+								}
+							],
+							"sid": 689924882630471
+						}
+					]
+				}
+			],
+			"sid": 790271441060905
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_05_INSPECAO_DOCUMENTAL",
+			"description": "Lógica para o puzzle de análise dos Certificados de Análise (CoA).",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 882103475383678,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_05_INSPECAO_DOCUMENTAL\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 134452662192842,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 549710207461619
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 355417035519274,
+									"parameters": {
+										"layer": "\"lyr_UI_Popup\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 289072964338809,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 419849073545274,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 192479649029607
+								},
+								{
+									"callFunction": "f_UpdateBotoesCoA",
+									"sid": 549321233300560
+								}
+							],
+							"sid": 280170091917683
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 766940957284845,
+									"parameters": {
+										"object": "hit_doc_AbaMono"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 291743057694033,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 844938813177708,
+									"parameters": {
+										"animation": "\"Aba1\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 461735019265269,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 328543074241747,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 586483841336335
+								}
+							],
+							"sid": 376225246231362
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 517076607890072,
+									"parameters": {
+										"object": "hit_doc_AbaLote1"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 273453338816937,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 361684946357283,
+									"parameters": {
+										"animation": "\"Aba2\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 924836940094331,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 647711436781733,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 906948087730277
+								}
+							],
+							"sid": 356700978211515
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 400659850520303,
+									"parameters": {
+										"object": "hit_doc_AbaLote2"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 267008538997136,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 720775888594986,
+									"parameters": {
+										"animation": "\"Aba3\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 640710748076136,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"value": "2"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 487452708369801,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 157349966515093
+								}
+							],
+							"sid": 155158611911652
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 377610923109495,
+									"parameters": {
+										"object": "spr_ViraPaginaDireita"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 179903069695572,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 973222303445078,
+									"parameters": {
+										"first-value": "OBJ_Prancheta.Pagina_Atual",
+										"comparison": 2,
+										"second-value": "OBJ_Prancheta.MaxPageAtual"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 438381062111757,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 223243065603797,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 764834326370945,
+											"parameters": {
+												"first-value": "obj_Prancheta.CoA_Atual",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 147295451730373,
+											"parameters": {
+												"first-value": "obj_Prancheta.Pagina_Atual",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 436838665495519,
+											"parameters": {
+												"instance-variable": "HasViewedCoA1Page2",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "f_UpdatePaginaCoA",
+											"sid": 658953669878414
+										}
+									],
+									"sid": 813675283260506
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 598216440488568,
+											"parameters": {
+												"first-value": "obj_Prancheta.CoA_Atual",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 425135055110066,
+											"parameters": {
+												"first-value": "obj_Prancheta.Pagina_Atual",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 550958502359275,
+											"parameters": {
+												"instance-variable": "HasViewedCoA2Page2",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "f_UpdatePaginaCoA",
+											"sid": 734787794243645
+										}
+									],
+									"sid": 936701975067450
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 848644170917280,
+									"parameters": {
+										"object": "spr_ViraPaginaEsquerda"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 625543612004475,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 883087150077818,
+									"parameters": {
+										"first-value": "OBJ_Prancheta.Pagina_Atual",
+										"comparison": 4,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 545103096279267,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 518899863091902
+								}
+							],
+							"sid": 535987004819305
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 751388759185875,
+									"parameters": {
+										"object": "btn_doc_Info"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 112764822626310,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "f_MostrarPopup(texto)",
+									"sid": 596833193509021,
+									"parameters": [
+										"\"Use as abas para comparar a especificação com os CoAs dos lotes. Visualize todas as páginas antes de decidir se cada documento está conforme ou não conforme.\""
+									]
+								}
+							],
+							"sid": 367695514029860
+						},
+						{
+							"eventType": "comment",
+							"text": "botao aprovar novo"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 164039931571291,
+									"parameters": {
+										"object": "btn_doc_Aprovar2"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 958619143413470,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-effect-enabled",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 414197372469209,
+									"parameters": {
+										"effect": "\"AdjustHSL\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 322261047482479,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 178254310964414,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "CORRETO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 477710673657967,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 292870566201774,
+											"parameters": {
+												"instance-variable": "HasViewedCoA1Page2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 247952486926398,
+											"parameters": {
+												"instance-variable": "CoA1_Completo"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 327532147462071,
+											"parameters": {
+												"instance-variable": "CoA1_Completo",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 495835380884744,
+											"parameters": [
+												"\"Correto. O CoA do Lote 1 está conforme para esta etapa de conferência documental.\""
+											]
+										},
+										{
+											"callFunction": "f_UpdateBotoesCoA",
+											"sid": 262187245570966
+										},
+										{
+											"callFunction": "f_CheckDocumentalCompleto",
+											"sid": 713620639075294
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "btn_doc_Aprovar2",
+											"sid": 197687442478052,
+											"parameters": {
+												"animation": "\"Pressionado\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 985188381729703
+								},
+								{
+									"eventType": "comment",
+									"text": "INCORRETO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 772013046921387,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 451053008809820,
+											"parameters": {
+												"instance-variable": "HasViewedCoA2Page2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 822918158455623,
+											"parameters": {
+												"instance-variable": "CoA2_Completo"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 514179228642827,
+											"parameters": {
+												"variable": "g_QualidadeScore",
+												"value": "5"
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 631820595079240,
+											"parameters": [
+												"\"Revise a linha de Pureza (HPLC). O resultado do Lote 2 está abaixo da especificação mínima.\""
+											]
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "btn_doc_Aprovar2",
+											"sid": 965260045944063,
+											"parameters": {
+												"animation": "\"Pressionado\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 204233623518879
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 641303288668389,
+									"parameters": {
+										"object": "btn_doc_Reprovar2"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 682271095619294,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-effect-enabled",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 857481183276541,
+									"parameters": {
+										"effect": "\"AdjustHSL\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 807284347728077,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 793171911563397,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 931655810423277,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 866337256034976,
+											"parameters": {
+												"instance-variable": "HasViewedCoA1Page2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 402938947364575,
+											"parameters": {
+												"instance-variable": "CoA1_Completo"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 320948874609724,
+											"parameters": {
+												"variable": "g_QualidadeScore",
+												"value": "5"
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 356723371927824,
+											"parameters": [
+												"\"Revise novamente. Os resultados do Lote 1 estão dentro das especificações apresentadas.\""
+											]
+										}
+									],
+									"sid": 376518046422220
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 258776852883266,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 371595197761973,
+											"parameters": {
+												"instance-variable": "HasViewedCoA2Page2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 554028399318523,
+											"parameters": {
+												"instance-variable": "CoA2_Completo"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 756461117310694,
+											"parameters": {
+												"instance-variable": "CoA2_Completo",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 632661893837305,
+											"parameters": [
+												"\"Correto. O CoA do Lote 2 apresenta resultado fora da especificação e deve ser tratado como não conforme.\""
+											]
+										},
+										{
+											"callFunction": "f_UpdateBotoesCoA",
+											"sid": 500699343066990
+										},
+										{
+											"callFunction": "f_CheckDocumentalCompleto",
+											"sid": 728002811085298
+										}
+									],
+									"sid": 588646043569366
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 986107434565706,
+									"parameters": {
+										"object": "popup_BotaoOK"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 120859060042306,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 491876720826813,
+									"parameters": {
+										"variable": "g_IsPopupAtivo",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_BotaoOK",
+									"sid": 599539471702139,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_Texto",
+									"sid": 272126924380484,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_Fundo",
+									"sid": 486945867397091,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_AvatarNPC",
+									"sid": 256727754385398,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "BGsemitrans",
+									"sid": 977532665923145,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 867541115139863
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 731067255416593,
+									"parameters": {
+										"object": "hotspot_fechar_farmacopeia"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_documento_farmacopeia",
+									"sid": 862605336004630,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_fechar_farmacopeia",
+									"sid": 533298718420640,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 379297110326475
+						}
+					]
+				},
+				{
+					"functionName": "f_CheckDocumentalCompleto",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 463012791058277,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 426408570653203,
+									"parameters": {
+										"instance-variable": "CoA1_Completo"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 825661345121005,
+									"parameters": {
+										"instance-variable": "CoA2_Completo"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 327324178411988,
+									"parameters": {
+										"layer": "\"lyr_UI_Popup\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 338106556153546,
+									"parameters": [
+										"\"Doc_Feedback_CoA2_Reprovado\""
+									]
+								}
+							],
+							"sid": 872470622395046
+						}
+					]
+				}
+			],
+			"sid": 394786578701579
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "TASK_05_INSPECAO_DOCUMENTAL_BACKUP_ANTES_ABAS",
+			"description": "Lógica para o puzzle de análise dos Certificados de Análise (CoA).",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 512318855395431,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_05_INSPECAO_DOCUMENTAL\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 650791441425108,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 252045045246630
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 408013567031327,
+									"parameters": {
+										"layer": "\"lyr_UI_Popup\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 576767718813501,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 459872494599805,
+									"parameters": {
+										"instance-variable": "Pagina_Atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 948614263719252
+								},
+								{
+									"callFunction": "f_UpdateBotoesCoA",
+									"sid": 791853873109461
+								},
+								{
+									"callFunction": "f_MostrarPopup(texto)",
+									"sid": 867231025570931,
+									"parameters": [
+										"\"Analise os dois Certificados de Análise (CoA). Visualize todas as páginas antes de decidir. Sua meta é classificar corretamente os documentos como conformes ou não conformes, usando a especificação como referência.\""
+									]
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 657763058691815,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 495989919173757,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 464129301606607,
+									"parameters": {
+										"object": "spr_ViraPaginaDireita"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 407022122086450,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 341233984732983
+								}
+							],
+							"sid": 975211804203110,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 174783489457649,
+											"parameters": {
+												"first-value": "obj_Prancheta.CoA_Atual",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 389009736404233,
+											"parameters": {
+												"first-value": "obj_Prancheta.Pagina_Atual",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 338133732353157,
+											"parameters": {
+												"instance-variable": "Pagina_Atual",
+												"value": "2"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 918176614894059,
+											"parameters": {
+												"instance-variable": "HasViewedCoA1Page2",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 631696569086111,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 536203953994161
+										}
+									],
+									"actions": [],
+									"sid": 978576897816687,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 280553175633668,
+													"parameters": {
+														"first-value": "obj_Prancheta.CoA_Atual",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 639362885764024,
+													"parameters": {
+														"first-value": "obj_Prancheta.Pagina_Atual",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "OBJ_Prancheta",
+													"sid": 238963938733621,
+													"parameters": {
+														"instance-variable": "CoA1_Completo"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "OBJ_Prancheta",
+													"sid": 711014970076096,
+													"parameters": {
+														"instance-variable": "CoA_Atual",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "OBJ_Prancheta",
+													"sid": 580884280999644,
+													"parameters": {
+														"instance-variable": "Pagina_Atual",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 561962822663886,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 806788726493866
+												}
+											],
+											"actions": [],
+											"sid": 411681593987657,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 354885797435185,
+															"parameters": {
+																"first-value": "obj_Prancheta.CoA_Atual",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 182855220356656,
+															"parameters": {
+																"first-value": "obj_Prancheta.Pagina_Atual",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "OBJ_Prancheta",
+															"sid": 946129165114899,
+															"parameters": {
+																"instance-variable": "Pagina_Atual",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "OBJ_Prancheta",
+															"sid": 952527831760996,
+															"parameters": {
+																"instance-variable": "HasViewedCoA2Page2",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 452993072118446,
+													"disabled": true
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 262771711143061,
+									"parameters": {
+										"object": "spr_ViraPaginaEsquerda"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 265971024381105,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "f_UpdatePaginaCoA",
+									"sid": 902463523153757
+								}
+							],
+							"sid": 691893438157181,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 235520887884392,
+											"parameters": {
+												"first-value": "obj_Prancheta.CoA_Atual",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 445260354762465,
+											"parameters": {
+												"first-value": "obj_Prancheta.Pagina_Atual",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 838449575796229,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 692243720279844,
+											"parameters": {
+												"instance-variable": "Pagina_Atual",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 580277977651541,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 317374572734821
+										}
+									],
+									"actions": [],
+									"sid": 744371400378249,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 945967289030698,
+													"parameters": {
+														"first-value": "obj_Prancheta.Pagina_Atual",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "OBJ_Prancheta",
+													"sid": 820018426512164,
+													"parameters": {
+														"instance-variable": "Pagina_Atual",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 153930982277119,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "botao aprovar novo"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 709939467097953,
+									"parameters": {
+										"object": "btn_doc_Aprovar2"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 619452538567356,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 803071635967551,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 977859240588176,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 135121207636734,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 441167781762134,
+											"parameters": {
+												"instance-variable": "CoA1_Completo"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-effect-enabled",
+											"objectClass": "btn_doc_Aprovar2",
+											"sid": 918705065984679,
+											"parameters": {
+												"effect": "\"AdjustHSL\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 833433742423588,
+											"parameters": {
+												"instance-variable": "CoA1_Completo",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "f_UpdatePaginaCoA",
+											"sid": 192563591724613
+										},
+										{
+											"callFunction": "f_UpdateBotoesCoA",
+											"sid": 690958166416099
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 945791800804641,
+											"parameters": [
+												"\"Perfeito. Este CoA está completo e os resultados estão dentro das especificações.\""
+											]
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "btn_doc_Aprovar2",
+											"sid": 534682584118590,
+											"parameters": {
+												"animation": "\"Pressionado\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 245454824505892,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 808825358571794,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 981273980834577,
+											"parameters": {
+												"instance-variable": "CoA1_Completo"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 933954396657760,
+											"parameters": {
+												"instance-variable": "ContadorErros",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 137844651342367,
+											"parameters": [
+												"\"Um momento. Um dos valores parece estar fora da especificação. Consulte a Farmacopeia para verificar os limites corretos.\""
+											]
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "btn_doc_Aprovar2",
+											"sid": 187724354169224,
+											"parameters": {
+												"animation": "\"Pressionado\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 921175172309843,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "OBJ_Prancheta",
+													"sid": 731752315279748,
+													"parameters": {
+														"instance-variable": "ContadorErros",
+														"comparison": 4,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 614474069277166,
+													"parameters": {
+														"variable": "g_QualidadeScore",
+														"value": "5"
+													}
+												}
+											],
+											"sid": 518584381167148,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 372380047034979,
+									"parameters": {
+										"object": "btn_doc_Reprovar2"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 449722580180534,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 216385359771585,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 894358281872362,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 566612853574216,
+											"parameters": {
+												"instance-variable": "HasViewedCoA2Page2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 563642243711030,
+											"parameters": {
+												"instance-variable": "CoA2_Completo"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-effect-enabled",
+											"objectClass": "btn_doc_Reprovar2",
+											"sid": 593196652827271,
+											"parameters": {
+												"effect": "\"AdjustHSL\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 847568006636016,
+											"parameters": {
+												"instance-variable": "CoA2_Completo",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 241784503038662,
+											"parameters": {
+												"layer": "\"lyr_UI_Popup\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "btn_doc_Reprovar2",
+											"sid": 997349264655238,
+											"parameters": {
+												"animation": "\"Pressionado\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"callFunction": "f_StartDialogue",
+											"sid": 861312551424906,
+											"parameters": [
+												"\"Doc_Feedback_CoA2_Reprovado\""
+											]
+										}
+									],
+									"sid": 907119812890857,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 977828864284718,
+											"parameters": {
+												"instance-variable": "CoA_Atual",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 833584857803265,
+											"parameters": {
+												"instance-variable": "CoA1_Completo"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 158682933801658,
+											"parameters": {
+												"instance-variable": "HasViewedCoA1Page2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "OBJ_Prancheta",
+											"sid": 760762500481194,
+											"parameters": {
+												"instance-variable": "ContadorErros",
+												"value": "1"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 522713175891847,
+											"parameters": {
+												"variable": "g_QualidadeScore",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "btn_doc_Reprovar2",
+											"sid": 329834057761005,
+											"parameters": {
+												"animation": "\"Pressionado\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"callFunction": "f_MostrarPopup(texto)",
+											"sid": 654084776801729,
+											"parameters": [
+												"\"Tem certeza? Revise os dados. Todos os campos parecem preenchidos e dentro das especificações.\""
+											]
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "BGsemitrans",
+											"sid": 707825226682171,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 886454887799891,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "OBJ_Prancheta",
+													"sid": 424839503669555,
+													"parameters": {
+														"instance-variable": "ContadorErros",
+														"comparison": 4,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 545716682310018,
+													"parameters": {
+														"variable": "g_QualidadeScore",
+														"value": "5"
+													}
+												}
+											],
+											"sid": 354398541799198,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 993481609878027,
+									"parameters": {
+										"object": "popup_BotaoOK"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 726979066497775,
+									"parameters": {
+										"variable": "g_IsPopupAtivo"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 217129762068590,
+									"parameters": {
+										"variable": "g_IsPopupAtivo",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_BotaoOK",
+									"sid": 545344836366163,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_Texto",
+									"sid": 873635634265707,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_Fundo",
+									"sid": 169987533651323,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "popup_AvatarNPC",
+									"sid": 820520095945644,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "BGsemitrans",
+									"sid": 219224310581620,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 177228312097028,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 757492333293595,
+									"parameters": {
+										"object": "hotspot_fechar_farmacopeia"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_documento_farmacopeia",
+									"sid": 432330110741143,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_fechar_farmacopeia",
+									"sid": 114878370844316,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 822437307462483,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 657630576879231
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CUTSCENE_06_REPROVACAO_DOCUMENTAL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 200817778442542,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"CUTSCENE_06_REPROVACAO_DOCUMENTAL\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 530249224561221,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 473914451101292
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "SPR_Sofia",
+									"sid": 198858778553587,
+									"parameters": {
+										"opacity": "255"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Sofia",
+									"sid": 393567108642087,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 615711294241214,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 390977040905656,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Tag_Reprovado",
+									"sid": 855509204268377,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Tag_Reprovado",
+									"sid": 533427311184574,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 284036494541436,
+									"parameters": {
+										"seconds": "2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "OBJ_Barril_Intact_2",
+									"sid": 216473547862800,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Tag_Reprovado",
+									"sid": 680682199907712,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "OBJ_Palete2",
+									"sid": 175494678188554,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 954174738736446,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 564220710474445,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "f_SetState",
+									"sid": 156527406067804,
+									"parameters": [
+										"\"CUTSCENE_07_QUARENTENA\""
+									]
+								}
+							],
+							"sid": 525667580596433
+						}
+					]
+				}
+			],
+			"sid": 938746198927537
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CUTSCENE_07_QUARENTENA",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 673111348205143,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"CUTSCENE_07_QUARENTENA\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 741264601915351,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 129235158765808
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "SPR_Sofia",
+									"sid": 816926885493115,
+									"parameters": {
+										"opacity": "255"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Sofia",
+									"sid": 901531608137755,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 429920853580858,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 767703786964519,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Tag_Quarentena",
+									"sid": 845569845369337,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Tag_Quarentena",
+									"sid": 193010680078248,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 616625898952291,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 790920535847143,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 720424220764318,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "f_SetState",
+									"sid": 862442539143600,
+									"parameters": [
+										"\"TASK_INSPECIONAR_ETIQUETA\""
+									]
+								}
+							],
+							"sid": 295361972100537
+						}
+					]
+				}
+			],
+			"sid": 393998604994541
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TASK_INSPECIONAR_ETIQUETA",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 278359782493240,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"TASK_INSPECIONAR_ETIQUETA\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 895396017799346,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 967368813513244
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_InstrucaoInspecao",
+									"sid": 369622548456972,
+									"parameters": {
+										"text": "\"Clique na etiqueta 'EM QUARENTENA' para ver os detalhes.\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_InstrucaoInspecao",
+									"sid": 715194776713772,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "UI_Tag_Quarentena",
+									"sid": 382964685136425,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 745836066758103
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 231181659494463,
+									"parameters": {
+										"object": "UI_Tag_Quarentena"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ui_EtiquetaQuarentena_Detalhada",
+									"sid": 920500361316072,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_FecharEtiqueta",
+									"sid": 616447538539443,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 605225208395061
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 629905881949926,
+									"parameters": {
+										"object": "hotspot_FecharEtiqueta"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ui_EtiquetaQuarentena_Detalhada",
+									"sid": 198221461805153,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_InstrucaoInspecao",
+									"sid": 167425796373894,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "hotspot_FecharEtiqueta",
+									"sid": 313993069242254,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "UI_Tag_Quarentena",
+									"sid": 228139431531985,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"callFunction": "f_SetState",
+									"sid": 594864456584014,
+									"parameters": [
+										"\"CUTSCENE_08_TRANSPORTE_ALMOXARIFADO\""
+									]
+								}
+							],
+							"sid": 862867322016637
+						}
+					]
+				}
+			],
+			"sid": 410415724732334
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CUTSCENE_08_TRANSPORTE_ALMOXARIFADO",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 995988808143162,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"comparison": 0,
+								"value": "\"CUTSCENE_08_TRANSPORTE_ALMOXARIFADO\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 705949081152588,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 894070174054328
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Sofia",
+									"sid": 309374734460911,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "SPR_Sofia",
+									"sid": 575156097448103,
+									"parameters": {
+										"opacity": "255"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 571340280461068,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 177124160770460,
+									"parameters": {
+										"seconds": "2.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "UI_Tag_Quarentena",
+									"sid": 904502580966947,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "OBJ_Barril_Intact_1",
+									"sid": 368664357344055,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "OBJ_Palete1",
+									"sid": 380789187656286,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 825019011055664,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 558939243953076,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_FadeTela",
+									"sid": 266089000658758,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "spr_FadeTela",
+									"sid": 612124693209595,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 414656820134170,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "BG_DocaRececao",
+									"sid": 309583416626984,
+									"parameters": {
+										"animation": "\"Almoxarifado\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 552158800596222,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "spr_FadeTela",
+									"sid": 299545362383228,
+									"behaviorType": "Fadeout"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 458528562955905,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Sofia",
+									"sid": 811937233401188,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Sofia",
+									"sid": 294554111350295,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_Paleteira",
+									"sid": 831816484863119,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_Paleteira",
+									"sid": 351667040907780,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 779841881334729,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SPR_BarricaNoPalete",
+									"sid": 579415549991417,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "SPR_BarricaNoPalete",
+									"sid": 689795338655427,
+									"behaviorType": "Fadein"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 582027137138677,
+									"parameters": {
+										"seconds": "3.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "f_StartDialogue",
+									"sid": 248234767731832,
+									"parameters": [
+										"\"Conclusao_Quarentena\""
+									]
+								}
+							],
+							"sid": 114905432407417
+						}
+					]
+				}
+			],
+			"sid": 308851369213305
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MVP_MENU_HAMBURGUER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 662347385613054,
+							"parameters": {
+								"object": "btn_MenuHamburguer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 716192925988593,
+							"parameters": {
+								"variable": "g_IsMVPMenuOpen",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 160483030290777,
+							"parameters": {
+								"layer": "\"OverlayMenu\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 987463968758616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 518188439734083,
+							"parameters": {
+								"object": "btn_ContinuarOverlay"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 353416570290618,
+							"parameters": {
+								"variable": "g_IsMVPMenuOpen",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 917166010171385,
+							"parameters": {
+								"layer": "\"OverlayMenu\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 545734139935770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 530251595146550,
+							"parameters": {
+								"object": "btn_VoltarMenuOverlay"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 917401753774618,
+							"parameters": {
+								"variable": "g_IsMVPMenuOpen",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 171398510248504,
+							"parameters": {
+								"layer": "\"OverlayMenu\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_AdvanceArrow",
+							"sid": 411599816203533,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UI_DialogBox_9patch",
+							"sid": 791274616615237,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_DialogText",
+							"sid": 483072398097277,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_NpcNameText",
+							"sid": 425666125461533,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 276814643720795,
+							"parameters": {
+								"layout": "lyt_MenuMVP"
+							}
+						}
+					],
+					"sid": 461511835626672
+				}
+			],
+			"sid": 272915438752547
+		}
+	],
+	"sid": 303008002768951
+}

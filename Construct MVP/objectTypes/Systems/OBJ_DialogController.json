@@ -1,0 +1,75 @@
+{
+	"name": "OBJ_DialogController",
+	"plugin-id": "Sprite",
+	"sid": 234917546623700,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "IsActive",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 685938947766634
+		},
+		{
+			"name": "SceneID",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 573691510938208
+		},
+		{
+			"name": "LineIndex",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 909263331048832
+		},
+		{
+			"name": "IsTyping",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 191065214729978
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 288885541783991
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 37,
+						"height": 37,
+						"originX": 0.4594594594594595,
+						"originY": 0.7567567567567568,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7845733,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 666715315315219,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
