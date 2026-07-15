@@ -1,0 +1,15 @@
+{
+	"name": "txt_doc_PH_Resultado",
+	"plugin-id": "Text",
+	"sid": 981361561502213,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Sharpen"
+		}
+	]
+}

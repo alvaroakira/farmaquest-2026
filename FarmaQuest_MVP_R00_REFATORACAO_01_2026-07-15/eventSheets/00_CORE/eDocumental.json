@@ -1,0 +1,879 @@
+{
+	"name": "eDocumental",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DOC_DADOS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "f_UpdateDocumento",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 472476260641125,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 693262354105173,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Produto",
+									"sid": 901679120023262,
+									"parameters": {
+										"text": "\"Produto: Azitromicina di-hidratada\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Fornecedor",
+									"sid": 973931886847967,
+									"parameters": {
+										"text": "\"Fornecedor: PharmaChem\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Aspecto_Resultado",
+									"sid": 872914774867843,
+									"parameters": {
+										"text": "\"Conforme\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Teor_Resultado",
+									"sid": 673993081827328,
+									"parameters": {
+										"text": "\"99.5%\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_PH_Resultado",
+									"sid": 133613938156402,
+									"parameters": {
+										"text": "\"10.1\""
+									}
+								}
+							],
+							"sid": 178760804010922
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 621775100207064
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Produto",
+									"sid": 779988433591639,
+									"parameters": {
+										"text": "\"Produto: Azitromicina di-hidratada\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Fornecedor",
+									"sid": 238400742816800,
+									"parameters": {
+										"text": "\"Fornecedor: PharmaChem\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Aspecto_Resultado",
+									"sid": 383179191745822,
+									"parameters": {
+										"text": "\"Conforme\""
+									}
+								},
+								{
+									"type": "comment",
+									"text": "o campo fica em branco"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_Teor_Resultado",
+									"sid": 815329180206366,
+									"parameters": {
+										"text": "\"\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_PH_Resultado",
+									"sid": 497478952301433,
+									"parameters": {
+										"text": "\"10.1\""
+									}
+								}
+							],
+							"sid": 196154166783220
+						}
+					]
+				}
+			],
+			"sid": 991746668372850
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DOC_PAGINACAO",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "f_UpdateMaxPageDoc",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 129113629856045,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 859803042849721,
+									"parameters": {
+										"first-value": "OBJ_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 633188262612506,
+									"parameters": {
+										"instance-variable": "MaxPageAtual",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 955373941230950
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 706243731240807,
+									"parameters": {
+										"first-value": "OBJ_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 252890285719031,
+									"parameters": {
+										"instance-variable": "MaxPageAtual",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 538958119717523
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 475474090369973,
+									"parameters": {
+										"first-value": "OBJ_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 317100211874443,
+									"parameters": {
+										"instance-variable": "MaxPageAtual",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 157651337611375
+						}
+					]
+				},
+				{
+					"functionName": "f_UpdatePaginaCoA",
+					"functionDescription": "Centro de controle visual da prancheta",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "f_UpdateMaxPageDoc",
+							"sid": 881976058671651
+						},
+						{
+							"callFunction": "f_UpdateBotoesCoA",
+							"sid": 713113588377987
+						}
+					],
+					"sid": 416644516090331,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 971254832510078,
+									"parameters": {
+										"first-value": "obj_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 226733309196382,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_PaginaCoA",
+									"sid": 196436943224143,
+									"parameters": {
+										"animation": "\"Mono_P1\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 704307309677014,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 518478455491292,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_IndicadorCoA",
+									"sid": 827055025649626,
+									"parameters": {
+										"text": "\"Aba: Especificação\""
+									}
+								}
+							],
+							"sid": 742454103458732
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 755902193124695,
+									"parameters": {
+										"first-value": "obj_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 390216662007412,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_PaginaCoA",
+									"sid": 726837950074757,
+									"parameters": {
+										"animation": "\"CoA1_P1\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 312665131822803,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 882873820686268,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_IndicadorCoA",
+									"sid": 721780477514287,
+									"parameters": {
+										"text": "\"Aba: CoA Lote 1 — pg. 1\""
+									}
+								}
+							],
+							"sid": 955472271477201
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 754880260091764,
+									"parameters": {
+										"first-value": "obj_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 203431846155514,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_PaginaCoA",
+									"sid": 595030817520714,
+									"parameters": {
+										"animation": "\"CoA1_P2\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 508501461043596,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 423099641693914,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_IndicadorCoA",
+									"sid": 661904297008192,
+									"parameters": {
+										"text": "\"Aba: CoA Lote 1 — pg. 2\""
+									}
+								}
+							],
+							"sid": 466976004735006
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 878308784675324,
+									"parameters": {
+										"first-value": "obj_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 645245978472439,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_PaginaCoA",
+									"sid": 449461577070089,
+									"parameters": {
+										"animation": "\"CoA2_P1\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 317844037864948,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 406263055755367,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_IndicadorCoA",
+									"sid": 698351202145123,
+									"parameters": {
+										"text": "\"Aba: CoA Lote 2 — pg. 1\""
+									}
+								}
+							],
+							"sid": 501755105466467
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 416815966318076,
+									"parameters": {
+										"first-value": "obj_Prancheta.CoA_Atual",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 261260120051985,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_PaginaCoA",
+									"sid": 448520545733541,
+									"parameters": {
+										"animation": "\"CoA2_P2\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 967979994758485,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 766270705667242,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_doc_IndicadorCoA",
+									"sid": 599245524476394,
+									"parameters": {
+										"text": "\"Aba: CoA Lote 2 — pg. 2\""
+									}
+								}
+							],
+							"sid": 295782828567815
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 481550046383169,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 156001808043672,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 770664581538044
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 620267293891777
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaEsquerda",
+									"sid": 403384061113205,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 672559633279422
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 638505993962672,
+									"parameters": {
+										"first-value": "obj_Prancheta.Pagina_Atual",
+										"comparison": 2,
+										"second-value": "OBJ_Prancheta.MaxPageAtual"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 284452507215599,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 157081947812264
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 380369449284149
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "spr_ViraPaginaDireita",
+									"sid": 325068675762618,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 250569156859153
+						}
+					]
+				}
+			],
+			"sid": 574038814418596
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DOC_BOTOES_DECISAO",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "f_UpdateBotoesCoA",
+					"functionDescription": "função central para decidir se os botões devem estar ativos ou bloqueados. ",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btn_doc_Aprovar2",
+							"sid": 817027580053623,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"AdjustHSL\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btn_doc_Reprovar2",
+							"sid": 610645307833126,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"AdjustHSL\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "btn_doc_Aprovar2",
+							"sid": 545418262479590,
+							"parameters": {
+								"animation": "\"Bloqueado\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "btn_doc_Reprovar2",
+							"sid": 576520385969709,
+							"parameters": {
+								"animation": "\"Bloqueado\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 545850500284518,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 667546628161895,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 267005729786817,
+									"parameters": {
+										"instance-variable": "HasViewedCoA1Page2"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 920926199893051,
+									"parameters": {
+										"instance-variable": "CoA1_Completo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 870512317045388,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 108334627723332,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 309408571713951,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"AdjustHSL\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 977463132926329,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"AdjustHSL\""
+									}
+								}
+							],
+							"sid": 159818776828919
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 777704280331598,
+									"parameters": {
+										"instance-variable": "CoA_Atual",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 876620619091084,
+									"parameters": {
+										"instance-variable": "HasViewedCoA2Page2"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Prancheta",
+									"sid": 123311133451574,
+									"parameters": {
+										"instance-variable": "CoA2_Completo"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 227452756584995,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 533433537690665,
+									"parameters": {
+										"animation": "\"Normal\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btn_doc_Aprovar2",
+									"sid": 712993358758214,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"AdjustHSL\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btn_doc_Reprovar2",
+									"sid": 412603281741802,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"AdjustHSL\""
+									}
+								}
+							],
+							"sid": 358399848697325
+						}
+					]
+				}
+			],
+			"sid": 680294762608677
+		}
+	],
+	"sid": 448483184541421
+}

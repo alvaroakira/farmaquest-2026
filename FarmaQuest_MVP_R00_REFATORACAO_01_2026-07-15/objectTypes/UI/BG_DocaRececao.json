@@ -1,0 +1,114 @@
+{
+	"name": "BG_DocaRececao",
+	"plugin-id": "Sprite",
+	"sid": 788471842486148,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 640,
+						"height": 360,
+						"originX": 0.4984423676012461,
+						"originY": 0.4972375690607735,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1442285,
+						"collisionPoly": {
+							"points": [
+								0.0015431051314978507,
+								0.0027168115689366343,
+								0.9953416300709944,
+								0.0027168115689366343,
+								0.9953416300709944,
+								0.9917583265526104,
+								0.0015431051314978507,
+								0.9917583265526104
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 464853322412368,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 640,
+						"height": 360,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6797243,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 196855003510064,
+				"name": "Almoxarifado",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 640,
+						"height": 360,
+						"originX": 0.4984423676012461,
+						"originY": 0.4972375690607735,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 158100,
+						"collisionPoly": {
+							"points": [
+								0.0015431051314978507,
+								0.0027168115689366343,
+								0.9953416300709944,
+								0.0027168115689366343,
+								0.9953416300709944,
+								0.9917583265526104,
+								0.0015431051314978507,
+								0.9917583265526104
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 105251916708868,
+				"name": "Animation 2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

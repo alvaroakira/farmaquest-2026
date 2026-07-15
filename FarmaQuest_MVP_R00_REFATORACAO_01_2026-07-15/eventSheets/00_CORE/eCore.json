@@ -1,0 +1,135 @@
+{
+	"name": "eCore",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "g_CurrentState",
+			"type": "string",
+			"initialValue": "\"\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 536722099293434
+		},
+		{
+			"eventType": "variable",
+			"name": "g_QualidadeScore",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 695330492112661
+		},
+		{
+			"eventType": "variable",
+			"name": "g_InspecaoVisualCompleta",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 233756321171892
+		},
+		{
+			"eventType": "variable",
+			"name": "g_IsPopupAtivo",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 637753286395822
+		},
+		{
+			"eventType": "variable",
+			"name": "g_PontuacaoAnterior",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 682531213110175
+		},
+		{
+			"eventType": "variable",
+			"name": "g_GameInitialized",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 188724101750497
+		},
+		{
+			"eventType": "variable",
+			"name": "g_PlayerName",
+			"type": "string",
+			"initialValue": "\"Estudante\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 896162151022587
+		},
+		{
+			"eventType": "variable",
+			"name": "g_IsMVPMenuOpen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 373368339895858
+		},
+		{
+			"eventType": "comment",
+			"text": "Controla o estado global do jogo e as transições."
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SYS_FSM",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Esta função centraliza todas as mudanças de estado. Em vez de espalhar ações \"Set g_CurrentState\" por todo o código, chamaremos f_SetState(\"NOVO_ESTADO\"). Isso torna o código mais legível e muito mais fácil de depurar."
+				},
+				{
+					"functionName": "f_SetState",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "newState",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 252271645443657
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 545829800280607,
+							"parameters": {
+								"variable": "g_CurrentState",
+								"value": "newState"
+							}
+						}
+					],
+					"sid": 386188146510685
+				}
+			],
+			"sid": 349080038026715
+		}
+	],
+	"sid": 597045188032143
+}

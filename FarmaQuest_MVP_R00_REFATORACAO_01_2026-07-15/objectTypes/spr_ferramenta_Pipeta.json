@@ -1,0 +1,56 @@
+{
+	"name": "spr_ferramenta_Pipeta",
+	"plugin-id": "Sprite",
+	"sid": 698987859012308,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 44,
+						"height": 262,
+						"originX": 0.5227272727272727,
+						"originY": 0.5267175572519084,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1338150,
+						"collisionPoly": {
+							"points": [
+								0.4318181818181818,
+								0.003816793893129771,
+								0.7954545454545454,
+								0.011450381679389313,
+								0.9772727272727273,
+								0.09541984732824428,
+								0.9318181818181818,
+								0.42366412213740456,
+								0.5681818181818183,
+								0.9961832061068703,
+								0.022727272727272728,
+								0.05725190839694656
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 659556142567295,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,206 @@
+{
+	"name": "spr_PaginaCoA",
+	"plugin-id": "Sprite",
+	"sid": 889860369061554,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1216,
+						"height": 1420,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2226214,
+						"collisionPoly": {
+							"points": [
+								0.16934919524142758,
+								0.23559214692843572,
+								0.8957312806158153,
+								0.23749208359721344,
+								0.8957312806158153,
+								0.8106396453451552,
+								0.1112666200139958,
+								0.8106396453451552,
+								0.1112666200139958,
+								0.23749208359721344
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 405836222631032,
+				"name": "Mono_P1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 1216,
+						"height": 1420,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 1,
+						"fileType": "image/png",
+						"imageSpriteId": 5466581,
+						"collisionPoly": {
+							"points": [
+								0.09549971122500346,
+								0.04836729019601783,
+								1,
+								0.05167827739075367,
+								1,
+								1,
+								0.01091232983392519,
+								1,
+								0.01091232983392519,
+								0.05167827739075367
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 304544907843769,
+				"name": "CoA1_P1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 1216,
+						"height": 1420,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3528165,
+						"collisionPoly": {
+							"points": [
+								0.10706787963610917,
+								0.2887903736542115,
+								0.8929321203638908,
+								0.2887903736542115,
+								0.8929321203638908,
+								0.8302723242558582,
+								0.10706787963610917,
+								0.8302723242558582
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 354379256274334,
+				"name": "CoA1_P2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 1216,
+						"height": 1420,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 679953,
+						"collisionPoly": {
+							"points": [
+								0.16934919524142758,
+								0.23559214692843572,
+								0.8957312806158153,
+								0.23749208359721344,
+								0.8957312806158153,
+								0.8106396453451552,
+								0.1112666200139958,
+								0.8106396453451552,
+								0.1112666200139958,
+								0.23749208359721344
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 476615232507070,
+				"name": "CoA2_P1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 1216,
+						"height": 1420,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2377558,
+						"collisionPoly": {
+							"points": [
+								0.10706787963610917,
+								0.2887903736542115,
+								0.8929321203638908,
+								0.2887903736542115,
+								0.8929321203638908,
+								0.8302723242558582,
+								0.10706787963610917,
+								0.8302723242558582
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 335353819032794,
+				"name": "CoA2_P2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

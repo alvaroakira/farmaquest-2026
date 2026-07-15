@@ -1,0 +1,52 @@
+{
+	"name": "spr_ferramenta_Calador",
+	"plugin-id": "Sprite",
+	"sid": 398970084392433,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 78,
+						"height": 258,
+						"originX": 0.41025641025641024,
+						"originY": 0.5465116279069767,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3019736,
+						"collisionPoly": {
+							"points": [
+								0.01282051282051282,
+								0.003875968992248062,
+								0.9871794871794872,
+								0.05038759689922478,
+								0.5769230769230768,
+								0.9961240310077519,
+								0.4230769230769231,
+								0.9883720930232558
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 333520354403961,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

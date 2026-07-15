@@ -1,0 +1,21 @@
+{
+	"name": "Familia_Ferramentas",
+	"plugin-id": "Sprite",
+	"sid": 694460010244788,
+	"instanceVariables": [
+		{
+			"name": "NomeFerramenta",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 364525945526155
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"spr_ferramenta_Calador",
+		"spr_ferramenta_Espatula",
+		"spr_ferramenta_Pipeta"
+	]
+}

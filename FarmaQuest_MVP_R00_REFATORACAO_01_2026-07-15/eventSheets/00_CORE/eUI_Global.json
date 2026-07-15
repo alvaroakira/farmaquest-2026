@@ -1,0 +1,305 @@
+{
+	"name": "eUI_Global",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI_HUD_PONTUACAO",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 182877174212456
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ui_ScoreText",
+							"sid": 832627204801664,
+							"parameters": {
+								"text": "\"🔎 \" & g_QualidadeScore"
+							}
+						}
+					],
+					"sid": 691223695381220
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SYS_FeedbackPontuacao",
+					"description": "Controla a animação e o feedback visual do texto de pontuação.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 847236833122081
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 873101487763587,
+									"parameters": {
+										"variable": "g_QualidadeScore",
+										"comparison": 4,
+										"value": "g_PontuacaoAnterior"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "ui_ScoreText",
+									"sid": 563907100839256,
+									"parameters": {
+										"color": "rgbEx(0, 255, 0)"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "ui_ScoreText",
+									"sid": 372645619014842,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"pop_up\"",
+										"property": "scale",
+										"end-x": "1.2",
+										"end-y": "1.2",
+										"time": "0.1",
+										"ease": "easeoutquad",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 489592712772260,
+									"parameters": {
+										"variable": "g_PontuacaoAnterior",
+										"value": "g_QualidadeScore"
+									}
+								}
+							],
+							"sid": 344945225973315
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 702727648742541
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 146567364476801,
+									"parameters": {
+										"variable": "g_QualidadeScore",
+										"comparison": 2,
+										"value": "g_PontuacaoAnterior"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "ui_ScoreText",
+									"sid": 572948623162662,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "ui_ScoreText",
+									"sid": 651736314158887,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"pop_up\"",
+										"property": "scale",
+										"end-x": "1.2",
+										"end-y": "1.2",
+										"time": "0.1",
+										"ease": "easeoutquad",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 906370303245442,
+									"parameters": {
+										"variable": "g_PontuacaoAnterior",
+										"value": "g_QualidadeScore"
+									}
+								}
+							],
+							"sid": 320498051865658
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "ui_ScoreText",
+									"sid": 422932000347770,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"pop_up\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "ui_ScoreText",
+									"sid": 223645430510726,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"pop_down\"",
+										"property": "scale",
+										"end-x": "1.0",
+										"end-y": "1.0",
+										"time": "5",
+										"ease": "easeoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 526422474222225,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "ui_ScoreText",
+									"sid": 426835305884512,
+									"parameters": {
+										"color": "rgbEx(0, 0, 0)"
+									}
+								}
+							],
+							"sid": 211012849490191
+						}
+					],
+					"sid": 285692146260330
+				}
+			],
+			"sid": 170622038687769
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI_POPUP_FEEDBACK",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "f_MostrarPopup(texto)",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "texto",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 172480702679318
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 537783702582441,
+							"parameters": {
+								"layer": "\"lyr_UI_Popup\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 264599093820632,
+							"parameters": {
+								"variable": "g_IsPopupAtivo",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "popup_Texto",
+							"sid": 814844229725562,
+							"parameters": {
+								"text": "texto"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_BotaoOK",
+							"sid": 401882958120675,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_Texto",
+							"sid": 889025146603769,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_Fundo",
+							"sid": 483900611518523,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "popup_AvatarNPC",
+							"sid": 749736593959734,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 379792421987083
+				}
+			],
+			"sid": 227871134488028
+		}
+	],
+	"sid": 241328613876264
+}

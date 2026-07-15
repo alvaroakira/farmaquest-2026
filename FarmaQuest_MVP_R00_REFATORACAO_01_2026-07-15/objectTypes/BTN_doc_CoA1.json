@@ -1,0 +1,23 @@
+{
+	"name": "BTN_doc_CoA1",
+	"plugin-id": "NinePatch",
+	"sid": 335464017399809,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 6712081,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

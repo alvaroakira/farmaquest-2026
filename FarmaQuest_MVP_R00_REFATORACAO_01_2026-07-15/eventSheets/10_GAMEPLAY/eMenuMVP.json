@@ -1,0 +1,184 @@
+{
+	"name": "eMenuMVP",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGlobal"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MVP_MENU_RESET_GLOBAL_UI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 376194725792211
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 197434836664868,
+							"parameters": {
+								"variable": "g_IsMVPMenuOpen",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_AdvanceArrow",
+							"sid": 986947865719166,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UI_DialogBox_9patch",
+							"sid": 131932795159147,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_DialogText",
+							"sid": 678804373594706,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ui_NpcNameText",
+							"sid": 594273246499474,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 701514957172169
+				}
+			],
+			"sid": 475515414284419
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 271902464070890,
+					"parameters": {
+						"object": "btn_IniciarMVP"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 890092696835608,
+					"parameters": {
+						"variable": "g_QualidadeScore",
+						"value": "100"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 520611539143735,
+					"parameters": {
+						"variable": "g_PontuacaoAnterior",
+						"value": "100"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 770153298675253,
+					"parameters": {
+						"variable": "g_CurrentState",
+						"value": "\"\""
+					}
+				}
+			],
+			"sid": 500182273666027,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 734671574713438,
+							"parameters": {
+								"first-value": "input_NomeJogador.Text",
+								"comparison": 1,
+								"second-value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 347270261769537,
+							"parameters": {
+								"variable": "g_PlayerName",
+								"value": "input_NomeJogador.Text"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 731111334293298,
+							"parameters": {
+								"layout": "lyt_Jogo"
+							}
+						}
+					],
+					"sid": 349516360212866
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 743721609881909
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 777532136830699,
+							"parameters": {
+								"variable": "g_PlayerName",
+								"value": "\"Estudante\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 755986158950909,
+							"parameters": {
+								"layout": "lyt_Jogo"
+							}
+						}
+					],
+					"sid": 258452947186350
+				}
+			]
+		}
+	],
+	"sid": 617442560570883
+}

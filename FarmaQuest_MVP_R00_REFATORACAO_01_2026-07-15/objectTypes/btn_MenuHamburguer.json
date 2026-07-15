@@ -1,0 +1,60 @@
+{
+	"name": "btn_MenuHamburguer",
+	"plugin-id": "Sprite",
+	"sid": 189596728154380,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 42,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 4102018,
+						"collisionPoly": {
+							"points": [
+								0.15,
+								0.047619047619047616,
+								0.85,
+								0.047619047619047616,
+								0.95,
+								0.14285714285714285,
+								0.95,
+								0.8571428571428571,
+								0.85,
+								0.9523809523809523,
+								0.15,
+								0.9523809523809523,
+								0.05,
+								0.8571428571428571,
+								0.05,
+								0.14285714285714285
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 447346399174185,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

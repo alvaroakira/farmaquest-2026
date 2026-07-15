@@ -1,0 +1,15 @@
+{
+	"name": "txt_doc_Aspecto_Resultado",
+	"plugin-id": "Text",
+	"sid": 822583559354325,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Sharpen"
+		}
+	]
+}

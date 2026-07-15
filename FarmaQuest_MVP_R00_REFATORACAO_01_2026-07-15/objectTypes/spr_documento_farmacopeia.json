@@ -1,0 +1,52 @@
+{
+	"name": "spr_documento_farmacopeia",
+	"plugin-id": "Sprite",
+	"sid": 338031895314399,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 460,
+						"height": 306,
+						"originX": 0.5021739130434782,
+						"originY": 0.4869281045751634,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1334847,
+						"collisionPoly": {
+							"points": [
+								0.006521739130434782,
+								0.0032679738562091504,
+								0.9978260869565218,
+								0.016339869281045753,
+								0.9934782608695653,
+								0.9967320261437909,
+								0.002173913043478261,
+								0.9901960784313726
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 908821079101079,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

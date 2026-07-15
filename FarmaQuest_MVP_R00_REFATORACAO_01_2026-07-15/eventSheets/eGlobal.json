@@ -1,0 +1,26 @@
+{
+	"name": "eGlobal",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eCore"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eDialogue"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eUI_Global"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eDocumental"
+		},
+		{
+			"eventType": "comment",
+			"text": "eGlobal é uma folha agregadora. Não adicionar lógica específica de gameplay aqui."
+		}
+	],
+	"sid": 810161438032139
+}

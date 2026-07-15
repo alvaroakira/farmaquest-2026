@@ -1,0 +1,587 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 48703,
+	"name": "FarmaQuest_test",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "fogexponential",
+			"name": "Fog (exponential)",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowhorizontal",
+			"name": "Glow horizontal",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowvertical",
+			"name": "Glow vertical",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pulse",
+			"name": "Pulse",
+			"author": "Danguafer/Silexars",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "radialblur",
+			"name": "Radial blur",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "sharpen",
+			"name": "Sharpen",
+			"author": "Brad Larson",
+			"bundled": false
+		}
+	],
+	"uniqueId": "gytam3tknsy",
+	"objectTypes": {
+		"items": [
+			"txt_doc_Titulo",
+			"txt_doc_Produto",
+			"txt_doc_Fornecedor",
+			"txt_doc_Aspecto_Label",
+			"txt_doc_Aspecto_Resultado",
+			"txt_doc_Teor_Label",
+			"txt_doc_Teor_Resultado",
+			"txt_doc_PH_Label",
+			"txt_doc_PH_Resultado",
+			"BTN_doc_CoA1",
+			"BTN_doc_CoA2",
+			"txt_doc_btn1",
+			"btn_doc_Aprovar",
+			"btn_doc_Reprovar",
+			"UI_Tag_Reprovado",
+			"UI_Tag_Quarentena",
+			"spr_ViraPaginaDireita",
+			"spr_ViraPaginaEsquerda",
+			"txt_doc_IndicadorCoA",
+			"popup_Fundo",
+			"popup_AvatarNPC",
+			"popup_Texto",
+			"popup_BotaoOK",
+			"btn_doc_Aprovar2",
+			"btn_doc_Reprovar2",
+			"txt_InstrucaoInspecao",
+			"icone_farmacopeia",
+			"spr_documento_farmacopeia",
+			"hotspot_fechar_farmacopeia",
+			"ui_EtiquetaQuarentena_Detalhada",
+			"hotspot_FecharEtiqueta",
+			"BGsemitrans",
+			"bg_Antecamara_expanded",
+			"spr_Avatar",
+			"obj_AmostragemController",
+			"spr_PaginaCoA",
+			"spr_EPI_Luvas",
+			"spr_EPI_Macacao",
+			"spr_EPI_Mascara",
+			"spr_EPI_Oculos",
+			"spr_EPI_Propes",
+			"spr_EPI_Touca",
+			"textoGlobal",
+			"LocalStorage",
+			"spr_FadeTela",
+			"SPR_Paleteira",
+			"SPR_BarricaNoPalete",
+			"bg_SalaAmostragem",
+			"hotspot_Manometro",
+			"hotspot_BancadaCapela",
+			"hotspot_BotaoCapela",
+			"spr_Alcool70",
+			"spr_ChecklistHUD",
+			"anim_FluxoLaminar",
+			"spr_ferramenta_Calador",
+			"spr_ferramenta_Pipeta",
+			"spr_ferramenta_Espatula",
+			"spr_BandejaFerramentas",
+			"spr_BarricaAberta",
+			"spr_Frasco_Amostra",
+			"ui_Etiqueta_Amostra_Fundo",
+			"txt_Etiqueta_Produto",
+			"txt_Etiqueta_Lote",
+			"txt_Localizacao",
+			"txt_TituloMVP",
+			"txt_SubtituloMVP",
+			"input_NomeJogador",
+			"btn_IniciarMVP",
+			"btn_ContinuarMVP",
+			"txt_BtnIniciarMVP",
+			"txt_BtnContinuarMVP",
+			"btn_MenuHamburguer",
+			"bg_MenuOverlay",
+			"menuOver",
+			"btn_ContinuarOverlay",
+			"btn_VoltarMenuOverlay",
+			"txt_ContinuarOverlay",
+			"txt_VoltarMenuOverlay",
+			"hit_doc_AbaMono",
+			"hit_doc_AbaLote1",
+			"hit_doc_AbaLote2",
+			"btn_doc_Info",
+			"hit_Tool_Calador",
+			"hit_Tool_Espatula",
+			"hit_Tool_Pipeta"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"SPR_AnLu",
+					"SPR_Helena",
+					"SPR_Sofia",
+					"spr_Leo_CQ"
+				],
+				"subfolders": [],
+				"name": "Characters"
+			},
+			{
+				"items": [
+					"OBJ_Palete1",
+					"OBJ_Barril_Intact_1",
+					"OBJ_Barril_Damaged",
+					"OBJ_Barril_Intact_2",
+					"OBJ_Prancheta",
+					"OBJ_Palete3",
+					"OBJ_Palete2"
+				],
+				"subfolders": [],
+				"name": "Objects"
+			},
+			{
+				"items": [
+					"BG_DocaRececao",
+					"ui_AdvanceArrow",
+					"UI_DialogBox_9patch",
+					"ui_DialogText",
+					"ui_NpcNameText",
+					"UI_Cursor_Lupa",
+					"ui_NpcNameText2",
+					"ui_DialogText2",
+					"UI_Tag_NaoConforme",
+					"UI_BarricaMessage_9patch",
+					"UI_Correct_Circle",
+					"ui_FeedbackInspecao",
+					"UI_HUDBox_9patch",
+					"ui_ScoreText",
+					"ui_TextoBntDecisaoRelevar",
+					"ui_TextoBntDecisaoSegregar",
+					"btn_Decisao_Relevar",
+					"btn_Decisao_Segregar",
+					"hotspot_Barril_Danificado",
+					"hotspot_Barril_Intacto_1",
+					"hotspot_Barril_Intacto_2"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"AJAX",
+					"JSON",
+					"Mouse",
+					"Touch",
+					"OBJ_DialogController",
+					"Keyboard"
+				],
+				"subfolders": [],
+				"name": "Systems"
+			}
+		]
+	},
+	"functionsName": "Functions",
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"btn_Decisao_Segregar",
+				"ui_TextoBntDecisaoSegregar"
+			]
+		},
+		{
+			"members": [
+				"btn_Decisao_Relevar",
+				"ui_TextoBntDecisaoRelevar"
+			]
+		}
+	],
+	"families": {
+		"items": [
+			"Familia_EPI",
+			"Familia_Ferramentas"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"lyt_Jogo",
+			"lyl_Amostragem",
+			"lyt_MenuMVP"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"eGlobal"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"eCore",
+					"eDialogue",
+					"eUI_Global",
+					"eDocumental"
+				],
+				"subfolders": [],
+				"name": "00_CORE"
+			},
+			{
+				"items": [
+					"eLogicaJogo",
+					"eMenuMVP",
+					"eAmostragem"
+				],
+				"subfolders": [],
+				"name": "10_GAMEPLAY"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "90_LEGADO"
+			}
+		]
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "VCR_OSD_MONO_1.001.ttf",
+					"type": "application/font-sfnt",
+					"sid": 950974703648536,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Renogare-Regular.otf",
+					"type": "application/font-sfnt",
+					"sid": 971637096430716,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Tiny5-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 437172106509849,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 172577874792545,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 531240394554841,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 891401201096708,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 707668830776690,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 204242329354340,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 635117799406551,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 187059763483274,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "dialogo.json",
+					"type": "application/json",
+					"sid": 982056613262679,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Timeline 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"flowcharts": {
+		"items": [
+			"Flowchart 1"
+		],
+		"subfolders": []
+	},
+	"models3d": {
+		"items": [],
+		"subfolders": []
+	},
+	"properties": {
+		"description": "Jogo Educativo sobre a Indústria Farmacêutica",
+		"version": "1.0.0",
+		"autoIncrementVersion": false,
+		"author": "Álvaro Akira Akama",
+		"authorEmail": "alvaroakama@gmail.com",
+		"authorWebsite": "",
+		"appId": "com.meustudio.farmaquest",
+		"pixelRounding": true,
+		"zAxisScale": "regular",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "cover",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"multitexturing": "auto",
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"fixedFramerate": 30,
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"uidAllocationMode": "increment",
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"exportFileStructure": "folders",
+		"scriptsType": "module"
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 360,
+	"firstLayout": "lyt_MenuMVP"
+}

@@ -1,0 +1,152 @@
+{
+	"name": "spr_Leo_CQ",
+	"plugin-id": "Sprite",
+	"sid": 958429871900034,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 356,
+						"height": 479,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1939759,
+						"collisionPoly": {
+							"points": [
+								0.5625,
+								0.3611111111111111,
+								0.6,
+								1,
+								0.4,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 748894332901646,
+				"name": "hold_frasco",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 176,
+						"height": 237,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 661730,
+						"collisionPoly": {
+							"points": [
+								0.4602272727272727,
+								0.016877637130801686,
+								0.5284090909090909,
+								0.029535864978902954,
+								0.5795454545454546,
+								0.046413502109704644,
+								0.8409090909090909,
+								0.25316455696202533,
+								0.8863636363636364,
+								0.38396624472573837,
+								0.9943181818181818,
+								1,
+								0.07954545454545454,
+								1,
+								0.028409090909090908,
+								0.7637130801687764,
+								0.022727272727272728,
+								0.5738396624472574,
+								0.19886363636363635,
+								0.10548523206751055,
+								0.2897727272727273,
+								0.0379746835443038
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 327189689488551,
+				"name": "hold_lapis",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 352,
+						"height": 474,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 4182269,
+						"collisionPoly": {
+							"points": [
+								0.4602272727272727,
+								0.016877637130801686,
+								0.5284090909090909,
+								0.029535864978902954,
+								0.5795454545454546,
+								0.046413502109704644,
+								0.6363636363636364,
+								0.09282700421940929,
+								0.8863636363636364,
+								0.6033755274261603,
+								0.9943181818181818,
+								1,
+								0.07954545454545454,
+								1,
+								0.028409090909090908,
+								0.7637130801687764,
+								0.022727272727272728,
+								0.5738396624472574,
+								0.19886363636363635,
+								0.10548523206751055,
+								0.2897727272727273,
+								0.0379746835443038
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 338411248549472,
+				"name": "sem_braco",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

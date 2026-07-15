@@ -1,0 +1,73 @@
+{
+	"name": "SPR_BarricaNoPalete",
+	"plugin-id": "Sprite",
+	"sid": 745783949409367,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fadein",
+			"sid": 997041664339243
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fadeout",
+			"sid": 929668801396135
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 640,
+						"height": 360,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7073879,
+						"collisionPoly": {
+							"points": [
+								0.534375,
+								0.2222222222222222,
+								0.6375,
+								0.25555555555555554,
+								0.75625,
+								0.7777777777777778,
+								0.734375,
+								0.85,
+								0.64375,
+								1,
+								0.459375,
+								1,
+								0.384375,
+								0.8611111111111112,
+								0.36875,
+								0.6944444444444444,
+								0.49375,
+								0.24444444444444444
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 988300552995179,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

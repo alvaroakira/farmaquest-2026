@@ -1,0 +1,52 @@
+{
+	"name": "hotspot_BancadaCapela",
+	"plugin-id": "Sprite",
+	"sid": 133809644423647,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 242,
+						"height": 30,
+						"originX": 0.43388429752066116,
+						"originY": -0.43333333333333335,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 4760583,
+						"collisionPoly": {
+							"points": [
+								0.2603305785123967,
+								0.03333333333333333,
+								0.9793388429752066,
+								0.7,
+								0.756198347107438,
+								0.9666666666666667,
+								0.028925619834710745,
+								0.23333333333333334
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 481942177456790,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

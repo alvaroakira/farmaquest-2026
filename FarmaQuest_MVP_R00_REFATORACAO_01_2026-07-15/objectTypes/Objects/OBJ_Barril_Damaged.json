@@ -1,0 +1,97 @@
+{
+	"name": "OBJ_Barril_Damaged",
+	"plugin-id": "Sprite",
+	"sid": 552182649529904,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fadein",
+			"sid": 658123213753726
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fadeout",
+			"sid": 628987223232086
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 96,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 1,
+						"fileType": "image/png",
+						"imageSpriteId": 7456891,
+						"collisionPoly": {
+							"points": [
+								0.375,
+								0.0625,
+								0.7708333333333334,
+								0.075,
+								0.8333333333333334,
+								0.0875,
+								0.875,
+								0.1125,
+								0.9375,
+								0.275,
+								0.9583333333333334,
+								0.35,
+								0.9583333333333334,
+								0.6625,
+								0.9375,
+								0.7375,
+								0.8541666666666666,
+								0.8875,
+								0.8125,
+								0.9125,
+								0.6041666666666666,
+								0.95,
+								0.3958333333333333,
+								0.95,
+								0.1875,
+								0.9125,
+								0.14583333333333334,
+								0.8875,
+								0.0625,
+								0.7375,
+								0.041666666666666664,
+								0.6625,
+								0.041666666666666664,
+								0.35,
+								0.0625,
+								0.275,
+								0.125,
+								0.1125,
+								0.16666666666666666,
+								0.0875,
+								0.22916666666666666,
+								0.075
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 401952518352944,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

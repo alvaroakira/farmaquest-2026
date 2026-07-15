@@ -1,0 +1,25 @@
+{
+	"name": "ui_FeedbackInspecao",
+	"plugin-id": "Text",
+	"sid": 803025064476541,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 240961614194913
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "sharpen",
+			"name": "Afiar"
+		},
+		{
+			"effectId": "fogexponential",
+			"name": "Névoaexponencial"
+		}
+	]
+}

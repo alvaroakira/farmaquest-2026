@@ -1,0 +1,60 @@
+{
+	"name": "popup_BotaoOK",
+	"plugin-id": "Sprite",
+	"sid": 883623726180648,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 42,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9701486,
+						"collisionPoly": {
+							"points": [
+								0.19047619047619047,
+								0.125,
+								0.8095238095238095,
+								0.125,
+								0.9047619047619048,
+								0.25,
+								0.9047619047619048,
+								0.75,
+								0.8095238095238095,
+								0.875,
+								0.19047619047619047,
+								0.875,
+								0.09523809523809523,
+								0.75,
+								0.09523809523809523,
+								0.25
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 819778285164436,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
