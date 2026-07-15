@@ -117,9 +117,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "ui_ScoreText",
-					"sid": 174283503969065,
+					"sid": 208251397763516,
 					"parameters": {
-						"text": "\"Pontuação de Qualidade: \" & g_QualidadeScore"
+						"text": "\"🔎 \" & g_QualidadeScore"
 					}
 				}
 			],

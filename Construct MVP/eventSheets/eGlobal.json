@@ -94,9 +94,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "ui_ScoreText",
-					"sid": 981523331091960,
+					"sid": 336067960421413,
 					"parameters": {
-						"text": "\"Pontuação de Qualidade: \" & g_QualidadeScore"
+						"text": "\"🔎 \" & g_QualidadeScore"
 					}
 				}
 			],
@@ -1182,33 +1182,28 @@
 															"id": "start-fade",
 															"objectClass": "SPR_Sofia",
 															"sid": 761724991026684,
+															"disabled": true,
 															"behaviorType": "Fadeout"
 														},
 														{
 															"id": "start-fade",
 															"objectClass": "SPR_Paleteira",
 															"sid": 962460184885773,
+															"disabled": true,
 															"behaviorType": "Fadeout"
 														},
 														{
 															"id": "start-fade",
 															"objectClass": "SPR_BarricaNoPalete",
 															"sid": 430147696860204,
+															"disabled": true,
 															"behaviorType": "Fadeout"
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 945115261736221,
-															"parameters": {
-																"seconds": "0.3",
-																"use-timescale": true
-															}
 														},
 														{
 															"id": "set-visible",
 															"objectClass": "SPR_Sofia",
 															"sid": 592381170926944,
+															"disabled": true,
 															"parameters": {
 																"visibility": "invisible"
 															}
@@ -1217,6 +1212,7 @@
 															"id": "set-visible",
 															"objectClass": "SPR_Paleteira",
 															"sid": 968980354045027,
+															"disabled": true,
 															"parameters": {
 																"visibility": "invisible"
 															}
@@ -1225,18 +1221,9 @@
 															"id": "set-visible",
 															"objectClass": "SPR_BarricaNoPalete",
 															"sid": 956314018754083,
-															"parameters": {
-																"visibility": "invisible"
-															}
-														},
-														{
-															"id": "set-item",
-															"objectClass": "LocalStorage",
-															"sid": 913721900371558,
 															"disabled": true,
 															"parameters": {
-																"key": "\"ProximoEstado\"",
-																"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
+																"visibility": "invisible"
 															}
 														},
 														{
@@ -1262,28 +1249,27 @@
 															}
 														},
 														{
-															"id": "start-fade",
+															"id": "set-text",
 															"objectClass": "txt_Localizacao",
-															"sid": 278351581002515,
-															"behaviorType": "Fadein"
+															"sid": 341668381362782,
+															"parameters": {
+																"text": "\"Sala de Amostragem\""
+															}
 														},
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 500880453138368,
+															"sid": 764134775164412,
 															"parameters": {
 																"seconds": "1.0",
 																"use-timescale": true
 															}
 														},
 														{
-															"id": "set-item",
-															"objectClass": "LocalStorage",
-															"sid": 961035742616219,
-															"parameters": {
-																"key": "\"ProximoEstado\"",
-																"value": "\"TASK_AMOSTRAGEM_02_PREPARACAO_AMBIENTE\""
-															}
+															"id": "start-fade",
+															"objectClass": "txt_Localizacao",
+															"sid": 278351581002515,
+															"behaviorType": "Fadein"
 														},
 														{
 															"callFunction": "f_SetState",
@@ -1414,16 +1400,6 @@
 																"first-value": "obj_DialogController.SceneID",
 																"comparison": 0,
 																"second-value": "\"Amostragem_Conclusao\""
-															}
-														},
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "OBJ_DialogController",
-															"sid": 488487824921374,
-															"parameters": {
-																"instance-variable": "LineIndex",
-																"comparison": 0,
-																"value": "5"
 															}
 														}
 													],
@@ -2253,6 +2229,15 @@
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 324957109424101,
+					"parameters": {
+						"layer": "\"lyr_UI_Popup\"",
+						"visibility": "visible"
+					}
+				},
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",

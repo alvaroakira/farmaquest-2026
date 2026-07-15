@@ -406,6 +406,114 @@
 						"z": 0,
 						"angle": 0
 					}
+				},
+				{
+					"type": "spr_FadeTela",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 125,
+					"sid": 120922162907623,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fadein": {
+							"properties": {
+								"fade-in-time": 0.7,
+								"wait-time": 0,
+								"fade-out-time": 0,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Fadeout": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 449.2023010253906,
+						"y": 187.3977508544922,
+						"width": 640,
+						"height": 360,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "spr_FadeTela",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 126,
+					"sid": 210010445072146,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fadein": {
+							"properties": {
+								"fade-in-time": 0.7,
+								"wait-time": 0,
+								"fade-out-time": 0,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Fadeout": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 422.7576904296875,
+						"y": 313.2867126464844,
+						"width": 640,
+						"height": 360,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"z": 0,
+						"angle": 0
+					}
 				}
 			],
 			"sid": 185759642559871,
@@ -3972,9 +4080,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 409.8252052668362,
+						"x": 549.4113288261655,
 						"y": 0.7241117653759943,
-						"width": 228.56154736297736,
+						"width": 88.97542380364808,
 						"height": 36.86381715998276,
 						"originX": 0,
 						"originY": 0,
@@ -4044,9 +4152,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 420.8323858287971,
-						"y": 12.465156895201801,
-						"width": 199.79953678548702,
+						"x": 561.0791996219925,
+						"y": 10.505150181334614,
+						"width": 63.080738129010285,
 						"height": 30,
 						"originX": 0,
 						"originY": 0,
@@ -4369,6 +4477,60 @@
 							1,
 							1,
 							0
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "spr_FadeTela",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 127,
+					"sid": 305056020572470,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fadein": {
+							"properties": {
+								"fade-in-time": 0.7,
+								"wait-time": 0,
+								"fade-out-time": 0,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Fadeout": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 320,
+						"y": 180,
+						"width": 640,
+						"height": 360,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
 						],
 						"z": 0,
 						"angle": 0

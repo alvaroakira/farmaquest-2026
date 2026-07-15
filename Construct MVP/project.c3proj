@@ -252,7 +252,10 @@
 			"hit_doc_AbaMono",
 			"hit_doc_AbaLote1",
 			"hit_doc_AbaLote2",
-			"btn_doc_Info"
+			"btn_doc_Info",
+			"hit_Tool_Calador",
+			"hit_Tool_Espatula",
+			"hit_Tool_Pipeta"
 		],
 		"subfolders": [
 			{

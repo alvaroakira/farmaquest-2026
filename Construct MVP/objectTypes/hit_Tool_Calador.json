@@ -1,44 +1,33 @@
 {
-	"name": "spr_FadeTela",
+	"name": "hit_Tool_Calador",
 	"plugin-id": "Sprite",
-	"sid": 522564387652440,
-	"isGlobal": true,
+	"sid": 990192319583872,
+	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "Fade",
-			"name": "Fadein",
-			"sid": 351706948259194
-		},
-		{
-			"behaviorId": "Fade",
-			"name": "Fadeout",
-			"sid": 104923377671992
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 640,
-						"height": 360,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 114,
+						"height": 199,
+						"originX": 0.4824561403508772,
+						"originY": 0.49748743718592964,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 1146356,
+						"imageSpriteId": 7782128,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 667615069654305,
-				"name": "Default",
+				"sid": 663571241182408,
+				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

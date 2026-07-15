@@ -73,29 +73,6 @@
 					"behaviorType": "Fadeout"
 				},
 				{
-					"id": "check-item-exists",
-					"objectClass": "LocalStorage",
-					"sid": 410500196827445,
-					"parameters": {
-						"key": "\"ProximoEstado\""
-					}
-				},
-				{
-					"callFunction": "f_SetState",
-					"sid": 518731817378659,
-					"parameters": [
-						"LocalStorage.ItemValue"
-					]
-				},
-				{
-					"id": "remove-item",
-					"objectClass": "LocalStorage",
-					"sid": 681466996144376,
-					"parameters": {
-						"key": "\"ProximoEstado\""
-					}
-				},
-				{
 					"callFunction": "f_SetState",
 					"sid": 567191409354095,
 					"parameters": [
@@ -150,6 +127,15 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 963774419356133,
+					"parameters": {
+						"layer": "\"lyr_UI_Popup\"",
+						"visibility": "invisible"
+					}
+				},
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
@@ -276,61 +262,6 @@
 						}
 					],
 					"sid": 786092496347870
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 735406687860533,
-							"parameters": {
-								"variable": "g_CurrentState",
-								"comparison": 0,
-								"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "obj_AmostragemController",
-							"sid": 497917513098344,
-							"parameters": {
-								"instance-variable": "FerramentaOK"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 947848026007845
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "f_SetState",
-							"sid": 657943711137487,
-							"parameters": [
-								"\"TASK_AMOSTRAGEM_04_ROTULAGEM\""
-							]
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "spr_BandejaFerramentas",
-							"sid": 717442151810320,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Familia_Ferramentas",
-							"sid": 603688573186358,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 580507449366813,
-					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -678,6 +609,15 @@
 							"parameters": {
 								"variable": "g_IsPopupAtivo",
 								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 902162241189319,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1590,26 +1530,50 @@
 						},
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "spr_ferramenta_Calador",
-							"sid": 499717578669413,
+							"objectClass": "hit_Tool_Calador",
+							"sid": 282689938211003,
 							"parameters": {
 								"collisions": "enabled"
 							}
 						},
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "spr_ferramenta_Pipeta",
-							"sid": 265620063312044,
+							"objectClass": "hit_Tool_Pipeta",
+							"sid": 335903554741275,
 							"parameters": {
 								"collisions": "enabled"
 							}
 						},
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "spr_ferramenta_Espatula",
-							"sid": 803763869952850,
+							"objectClass": "hit_Tool_Espatula",
+							"sid": 865601797242931,
 							"parameters": {
 								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hit_Tool_Calador",
+							"sid": 420027931021832,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hit_Tool_Pipeta",
+							"sid": 453581244365399,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hit_Tool_Espatula",
+							"sid": 313368031874642,
+							"parameters": {
+								"visibility": "visible"
 							}
 						},
 						{
@@ -1622,192 +1586,7 @@
 							}
 						}
 					],
-					"sid": 310366279162687,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-tap-object",
-									"objectClass": "Touch",
-									"sid": 185235402550447,
-									"parameters": {
-										"object": "Familia_Ferramentas"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 806758807795221,
-									"parameters": {
-										"variable": "g_CurrentState",
-										"comparison": 0,
-										"value": "\"TASK_AMOSTRAGEM_03_SELECAO_FERRAMENTAS\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 302387068088534,
-									"parameters": {
-										"variable": "g_IsPopupAtivo"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 346747630392022,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Familia_Ferramentas",
-											"sid": 709110347127705,
-											"parameters": {
-												"instance-variable": "NomeFerramenta",
-												"comparison": 0,
-												"value": "\"Pipeta\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "f_MostrarPopup(texto)",
-											"sid": 555294620757781,
-											"parameters": [
-												"\"Não exatamente. A pipeta é usada para coletar amostras de líquidos. Este insumo é um pó.\""
-											]
-										},
-										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 436509565554578,
-											"parameters": {
-												"variable": "g_QualidadeScore",
-												"value": "5"
-											}
-										}
-									],
-									"sid": 180603817101864,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Familia_Ferramentas",
-											"sid": 838601916488340,
-											"parameters": {
-												"instance-variable": "NomeFerramenta",
-												"comparison": 0,
-												"value": "\"Espatula\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "f_MostrarPopup(texto)",
-											"sid": 174675769041231,
-											"parameters": [
-												"\"Quase. A espátula coletaria apenas uma amostra da superfície. Para garantir que o lote todo está bom, precisamos de uma amostra de várias profundidades.\""
-											]
-										},
-										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 313535597989056,
-											"parameters": {
-												"variable": "g_QualidadeScore",
-												"value": "5"
-											}
-										}
-									],
-									"sid": 640979773892481,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Familia_Ferramentas",
-											"sid": 962357654803735,
-											"parameters": {
-												"instance-variable": "NomeFerramenta",
-												"comparison": 0,
-												"value": "\"Calador\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "spr_BandejaFerramentas",
-											"sid": 812600600454725,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Familia_Ferramentas",
-											"sid": 888851718264016,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 476922187568404,
-											"parameters": {
-												"variable": "g_QualidadeScore",
-												"value": "10"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 376497861851756,
-											"parameters": {
-												"seconds": "0.5",
-												"use-timescale": true
-											}
-										},
-										{
-											"callFunction": "f_StartDialogue",
-											"sid": 184758084568452,
-											"parameters": [
-												"\"Amostragem_03_ColetaFeita\""
-											]
-										},
-										{
-											"callFunction": "f_MostrarPopup(texto)",
-											"sid": 458732659982381,
-											"parameters": [
-												"\"Perfeito! O calador é a ferramenta ideal, pois ele perfura o pó e coleta uma amostra de diferentes níveis (topo, meio e fundo) de uma só vez.\""
-											]
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "obj_AmostragemController",
-											"sid": 768952373802133,
-											"parameters": {
-												"instance-variable": "FerramentaOK",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 536853494233444,
-									"disabled": true
-								}
-							]
-						}
-					]
+					"sid": 310366279162687
 				},
 				{
 					"eventType": "block",
@@ -1815,9 +1594,9 @@
 						{
 							"id": "on-tap-object",
 							"objectClass": "Touch",
-							"sid": 762157282446790,
+							"sid": 449263539465633,
 							"parameters": {
-								"object": "spr_ferramenta_Pipeta"
+								"object": "hit_Tool_Pipeta"
 							}
 						},
 						{
@@ -1866,9 +1645,9 @@
 						{
 							"id": "on-tap-object",
 							"objectClass": "Touch",
-							"sid": 712128559508061,
+							"sid": 779336888883423,
 							"parameters": {
-								"object": "spr_ferramenta_Espatula"
+								"object": "hit_Tool_Espatula"
 							}
 						},
 						{
@@ -1917,9 +1696,9 @@
 						{
 							"id": "on-tap-object",
 							"objectClass": "Touch",
-							"sid": 561770361421645,
+							"sid": 975625479482780,
 							"parameters": {
-								"object": "spr_ferramenta_Calador"
+								"object": "hit_Tool_Calador"
 							}
 						},
 						{
@@ -1961,32 +1740,56 @@
 						},
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "spr_ferramenta_Calador",
-							"sid": 177685533461763,
+							"objectClass": "hit_Tool_Calador",
+							"sid": 494443264034266,
 							"parameters": {
 								"collisions": "disabled"
 							}
 						},
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "spr_ferramenta_Pipeta",
-							"sid": 590999389123262,
+							"objectClass": "hit_Tool_Pipeta",
+							"sid": 129227249243258,
 							"parameters": {
 								"collisions": "disabled"
 							}
 						},
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "spr_ferramenta_Espatula",
-							"sid": 908180442153398,
+							"objectClass": "hit_Tool_Espatula",
+							"sid": 575703132256614,
 							"parameters": {
 								"collisions": "disabled"
 							}
 						},
 						{
 							"id": "set-visible",
+							"objectClass": "hit_Tool_Calador",
+							"sid": 198655053775026,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hit_Tool_Pipeta",
+							"sid": 851989598731390,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "hit_Tool_Espatula",
+							"sid": 740621829605678,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
 							"objectClass": "spr_ferramenta_Calador",
-							"sid": 673872738551569,
+							"sid": 340050772208200,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -2163,14 +1966,6 @@
 								"instance-variable": "EtapaEtiqueta",
 								"value": "true"
 							}
-						},
-						{
-							"callFunction": "f_MostrarPopup(texto)",
-							"sid": 419885466933720,
-							"disabled": true,
-							"parameters": [
-								"\"Amostra coletada. Agora, precisamos preencher a etiqueta de rastreabilidade. Vou ditar os dados para você.\""
-							]
 						}
 					],
 					"sid": 202876577863242

@@ -792,180 +792,423 @@
 		{
 			"name": "lyl_Amostragem_UI_03",
 			"overriden": 0,
-			"subLayers": [],
-			"instances": [
+			"subLayers": [
 				{
-					"type": "spr_BandejaFerramentas",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 91,
-					"sid": 670874603118810,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 536.2902297973633,
-						"y": 193.1752471923828,
-						"width": 152,
-						"height": 54,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
+					"name": "Lote aberto",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "spr_BarricaAberta",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 92,
+							"sid": 119493681778571,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 510.5909424547182,
+								"y": 317.1686719872145,
+								"width": 106,
+								"height": 160,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						}
+					],
+					"sid": 429642084753788,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"sampling": "auto",
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				},
 				{
-					"type": "spr_ferramenta_Calador",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 68,
-					"sid": 611597743377326,
-					"tags": "",
-					"instanceVariables": {
-						"NomeFerramenta": "Calador"
-					},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 217.12067005044798,
-						"y": 184.07434911336827,
-						"width": 78,
-						"height": 258,
-						"originX": 0.41025641025641024,
-						"originY": 0.5465116279069767,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
+					"name": "Bandeja",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "spr_BandejaFerramentas",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 91,
+							"sid": 670874603118810,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 536.2902297973633,
+								"y": 193.1752471923828,
+								"width": 152,
+								"height": 54,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						}
+					],
+					"sid": 553295792200047,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"sampling": "auto",
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				},
 				{
-					"type": "spr_ferramenta_Espatula",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 90,
-					"sid": 944562343995558,
-					"tags": "",
-					"instanceVariables": {
-						"NomeFerramenta": "Espatula"
-					},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 327.63938873989304,
-						"y": 185.92822759540923,
-						"width": 24,
-						"height": 256,
-						"originX": 0.9166666666666666,
-						"originY": 0.55078125,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
+					"name": "Ferramentas",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "spr_ferramenta_Pipeta",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 88,
+							"sid": 468597802525818,
+							"tags": "",
+							"instanceVariables": {
+								"NomeFerramenta": "Pipeta"
+							},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 403.0299893052902,
+								"y": 173.38034337006883,
+								"width": 44,
+								"height": 262,
+								"originX": 0.5227272727272727,
+								"originY": 0.5267175572519084,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "spr_ferramenta_Espatula",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 90,
+							"sid": 944562343995558,
+							"tags": "",
+							"instanceVariables": {
+								"NomeFerramenta": "Espatula"
+							},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 327.63938873989304,
+								"y": 185.92822759540923,
+								"width": 24,
+								"height": 256,
+								"originX": 0.9166666666666666,
+								"originY": 0.55078125,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "spr_ferramenta_Calador",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 68,
+							"sid": 611597743377326,
+							"tags": "",
+							"instanceVariables": {
+								"NomeFerramenta": "Calador"
+							},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 190.8589818180261,
+								"y": 184.07434911336827,
+								"width": 78,
+								"height": 258,
+								"originX": 0.41025641025641024,
+								"originY": 0.5465116279069767,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						}
+					],
+					"sid": 531849136213052,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"sampling": "auto",
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				},
 				{
-					"type": "spr_ferramenta_Pipeta",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 88,
-					"sid": 468597802525818,
-					"tags": "",
-					"instanceVariables": {
-						"NomeFerramenta": "Pipeta"
-					},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 403.0299893052902,
-						"y": 173.38034337006883,
-						"width": 44,
-						"height": 262,
-						"originX": 0.5227272727272727,
-						"originY": 0.5267175572519084,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "spr_BarricaAberta",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 92,
-					"sid": 119493681778571,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 510.5909424547182,
-						"y": 317.1686719872145,
-						"width": 106,
-						"height": 160,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
+					"name": "Hitboxes",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "hit_Tool_Calador",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": false,
+								"live-preview": false
+							},
+							"uid": 122,
+							"sid": 257847658347311,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 195.45814318085556,
+								"y": 167.99487568813223,
+								"width": 86.51847432946295,
+								"height": 279.612475300242,
+								"originX": 0.4824561403508772,
+								"originY": 0.49748743718592964,
+								"color": [
+									1,
+									1,
+									1,
+									0.1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "hit_Tool_Espatula",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": false,
+								"live-preview": false
+							},
+							"uid": 123,
+							"sid": 178611143796021,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 304.6025085449219,
+								"y": 163.18086959227836,
+								"width": 78,
+								"height": 281.93349241393327,
+								"originX": 0.46153846153846156,
+								"originY": 0.48633879781420764,
+								"color": [
+									1,
+									1,
+									1,
+									0.1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "hit_Tool_Pipeta",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": false,
+								"live-preview": false
+							},
+							"uid": 124,
+							"sid": 681703861510602,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 410.26534622103725,
+								"y": 167.58826365477665,
+								"width": 70.45403228582455,
+								"height": 276.87082510008065,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						}
+					],
+					"sid": 683673515020016,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"sampling": "auto",
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				}
 			],
+			"instances": [],
 			"sid": 802257294143249,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
