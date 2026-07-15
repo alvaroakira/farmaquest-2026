@@ -35,6 +35,7 @@
   "Doc_Feedback_CoA2_Incorreto": [
     {"char": "An-Lu", "line": "Um momento. Revise com atenção a linha de Pureza (HPLC). O resultado do Lote 2 está abaixo da especificação mínima, então ele não deve seguir como conforme."}
   ],
+
   "Conclusao_Quarentena": [
     {"char": "An-Lu", "line": "Parabéns! Dos três lotes recebidos, apenas um pôde seguir no fluxo inicial. Isso mostra a importância da inspeção visual e documental no recebimento."},
     {"char": "An-Lu", "line": "Agora que ela foi inspecionada e sua documentação inicial está correta, ela está oficialmente 'Em Quarentena'. Isso significa que ela está sob controle da nossa fábrica, aguardando os testes internos."},

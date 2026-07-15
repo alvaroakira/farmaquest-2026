@@ -105,27 +105,6 @@
 			"text": "Every tick garante que, no exato momento em que a variável g_QualidadeScore mudar, a mudança será refletida na tela para o jogador."
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 350220578800182
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "ui_ScoreText",
-					"sid": 208251397763516,
-					"parameters": {
-						"text": "\"🔎 \" & g_QualidadeScore"
-					}
-				}
-			],
-			"sid": 444532999823034
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "CUTSCENE_01_BOASVINDAS",

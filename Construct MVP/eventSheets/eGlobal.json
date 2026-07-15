@@ -506,130 +506,6 @@
 								}
 							],
 							"sid": 783487588536486
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 578847934216268,
-									"parameters": {
-										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
-										"comparison": 0,
-										"second-value": "\"Leo Rossi\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "OBJ_DialogController",
-									"sid": 435747648386200,
-									"parameters": {
-										"instance-variable": "LineIndex",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "SPR_AnLu",
-									"sid": 356447839425757,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "SPR_Helena",
-									"sid": 448239993504835,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "spr_Leo_CQ",
-									"sid": 435755995826097,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "spr_Leo_CQ",
-									"sid": 503432644368359,
-									"parameters": {
-										"animation": "\"sem_braco\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 728596275266391,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 924701044324063,
-									"parameters": {
-										"first-value": "JSON.Get(\".\" & obj_DialogController.SceneID & \".\" & obj_DialogController.LineIndex & \".char\")",
-										"comparison": 0,
-										"second-value": "\"Leo Rossi\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "OBJ_DialogController",
-									"sid": 850194209332886,
-									"parameters": {
-										"instance-variable": "LineIndex",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "SPR_AnLu",
-									"sid": 481352425044932,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "SPR_Helena",
-									"sid": 746647644915861,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "spr_Leo_CQ",
-									"sid": 286189096087704,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "spr_Leo_CQ",
-									"sid": 292726871458050,
-									"parameters": {
-										"animation": "\"hold_frasco\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 386747592871748,
-							"disabled": true
 						}
 					]
 				},
@@ -924,6 +800,7 @@
 												{
 													"callFunction": "f_SetState",
 													"sid": 727988592543530,
+													"disabled": true,
 													"parameters": [
 														"\"TASK_02_INSPECAO_VISUAL\" "
 													]
@@ -937,7 +814,32 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 889176319140252,
+															"sid": 136295514768784,
+															"parameters": {
+																"first-value": "obj_DialogController.SceneID",
+																"comparison": 0,
+																"second-value": "\"Recepcao_01_BoasVindas\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "f_SetState",
+															"sid": 868631990584498,
+															"parameters": [
+																"\"TASK_02_INSPECAO_VISUAL\""
+															]
+														}
+													],
+													"sid": 314525082872986
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 463521445244054,
 															"parameters": {
 																"first-value": "obj_DialogController.SceneID",
 																"comparison": 0,
@@ -948,13 +850,13 @@
 													"actions": [
 														{
 															"callFunction": "f_SetState",
-															"sid": 507621819562634,
+															"sid": 161814281281445,
 															"parameters": [
 																"\"DECISAO_03_AVARIA\""
 															]
 														}
 													],
-													"sid": 314525082872986
+													"sid": 355832711583864
 												},
 												{
 													"eventType": "block",
