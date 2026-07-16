@@ -37,7 +37,7 @@
 					}
 				],
 				"sid": 748894332901646,
-				"name": "hold_frasco",
+				"name": "SegurandoFrasco",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -88,7 +88,7 @@
 					}
 				],
 				"sid": 327189689488551,
-				"name": "hold_lapis",
+				"name": "SegurandoLapis",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -139,7 +139,7 @@
 					}
 				],
 				"sid": 338411248549472,
-				"name": "sem_braco",
+				"name": "Neutro",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

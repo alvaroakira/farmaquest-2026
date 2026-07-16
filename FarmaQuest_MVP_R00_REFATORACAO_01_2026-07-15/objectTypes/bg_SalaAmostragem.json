@@ -127,7 +127,7 @@
 					}
 				],
 				"sid": 364855024679007,
-				"name": "Animation 5",
+				"name": "SalaSemBarrica",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -152,7 +152,7 @@
 					}
 				],
 				"sid": 519696882957544,
-				"name": "Animation 6",
+				"name": "SalaBarricaAberta",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -177,7 +177,7 @@
 					}
 				],
 				"sid": 857272743236127,
-				"name": "Animation 7",
+				"name": "SalaBarricaFechada",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

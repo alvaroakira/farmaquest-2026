@@ -301,9 +301,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "spr_Leo_CQ",
-									"sid": 921249219258486,
+									"sid": 772923970792543,
 									"parameters": {
-										"animation": "\"sem_braco\"",
+										"animation": "\"Neutro\"",
 										"from": "beginning"
 									}
 								}
@@ -348,9 +348,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "spr_Leo_CQ",
-									"sid": 680795822577729,
+									"sid": 845396533282558,
 									"parameters": {
-										"animation": "\"hold_frasco\"",
+										"animation": "\"SegurandoFrasco\"",
 										"from": "beginning"
 									}
 								}
@@ -1159,9 +1159,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "spr_Leo_CQ",
-															"sid": 899392688776521,
+															"sid": 477307368265441,
 															"parameters": {
-																"animation": "\"hold_frasco\"",
+																"animation": "\"SegurandoFrasco\"",
 																"from": "beginning"
 															}
 														},

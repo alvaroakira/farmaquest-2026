@@ -492,9 +492,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "bg_SalaAmostragem",
-							"sid": 235398361045741,
+							"sid": 160758800003627,
 							"parameters": {
-								"animation": "\"Animation 7\"",
+								"animation": "\"SalaBarricaFechada\"",
 								"from": "beginning"
 							}
 						},
@@ -1447,9 +1447,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "bg_SalaAmostragem",
-							"sid": 312392509954877,
+							"sid": 435770226041838,
 							"parameters": {
-								"animation": "\"Animation 6\"",
+								"animation": "\"SalaBarricaAberta\"",
 								"from": "beginning"
 							}
 						},
@@ -1880,9 +1880,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "bg_SalaAmostragem",
-							"sid": 928324832612075,
+							"sid": 458407039841096,
 							"parameters": {
-								"animation": "\"Animation 6\"",
+								"animation": "\"SalaBarricaAberta\"",
 								"from": "beginning"
 							}
 						},
@@ -2003,9 +2003,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "bg_SalaAmostragem",
-							"sid": 858780169714832,
+							"sid": 464530303270183,
 							"parameters": {
-								"animation": "\"Animation 5\"",
+								"animation": "\"SalaSemBarrica\"",
 								"from": "beginning"
 							}
 						},
@@ -2052,9 +2052,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "spr_Leo_CQ",
-							"sid": 734764542001877,
+							"sid": 636147698444694,
 							"parameters": {
-								"animation": "\"hold_frasco\"",
+								"animation": "\"SegurandoFrasco\"",
 								"from": "beginning"
 							}
 						},
