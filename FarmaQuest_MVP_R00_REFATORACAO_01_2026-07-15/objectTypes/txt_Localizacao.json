@@ -2,7 +2,7 @@
 	"name": "txt_Localizacao",
 	"plugin-id": "Text",
 	"sid": 882106711626352,
-	"isGlobal": false,
+	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [

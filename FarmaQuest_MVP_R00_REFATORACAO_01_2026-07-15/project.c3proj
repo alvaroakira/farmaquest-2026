@@ -180,107 +180,16 @@
 			"txt_doc_Teor_Resultado",
 			"txt_doc_PH_Label",
 			"txt_doc_PH_Resultado",
-			"BTN_doc_CoA1",
-			"BTN_doc_CoA2",
 			"txt_doc_btn1",
-			"btn_doc_Aprovar",
-			"btn_doc_Reprovar",
-			"UI_Tag_Reprovado",
-			"UI_Tag_Quarentena",
-			"spr_ViraPaginaDireita",
-			"spr_ViraPaginaEsquerda",
-			"txt_doc_IndicadorCoA",
-			"popup_Fundo",
-			"popup_AvatarNPC",
-			"popup_Texto",
-			"popup_BotaoOK",
-			"btn_doc_Aprovar2",
-			"btn_doc_Reprovar2",
 			"txt_InstrucaoInspecao",
-			"icone_farmacopeia",
-			"spr_documento_farmacopeia",
-			"hotspot_fechar_farmacopeia",
-			"ui_EtiquetaQuarentena_Detalhada",
-			"hotspot_FecharEtiqueta",
-			"BGsemitrans",
-			"bg_Antecamara_expanded",
-			"spr_Avatar",
-			"obj_AmostragemController",
-			"spr_PaginaCoA",
-			"spr_EPI_Luvas",
-			"spr_EPI_Macacao",
-			"spr_EPI_Mascara",
-			"spr_EPI_Oculos",
-			"spr_EPI_Propes",
-			"spr_EPI_Touca",
-			"textoGlobal",
-			"LocalStorage",
-			"spr_FadeTela",
-			"SPR_Paleteira",
-			"SPR_BarricaNoPalete",
-			"bg_SalaAmostragem",
-			"hotspot_Manometro",
-			"hotspot_BancadaCapela",
-			"hotspot_BotaoCapela",
-			"spr_Alcool70",
-			"spr_ChecklistHUD",
-			"anim_FluxoLaminar",
-			"spr_ferramenta_Calador",
-			"spr_ferramenta_Pipeta",
-			"spr_ferramenta_Espatula",
-			"spr_BandejaFerramentas",
-			"spr_BarricaAberta",
-			"spr_Frasco_Amostra",
-			"ui_Etiqueta_Amostra_Fundo",
 			"txt_Etiqueta_Produto",
 			"txt_Etiqueta_Lote",
 			"txt_Localizacao",
 			"txt_TituloMVP",
 			"txt_SubtituloMVP",
-			"input_NomeJogador",
-			"btn_IniciarMVP",
-			"btn_ContinuarMVP",
-			"txt_BtnIniciarMVP",
-			"txt_BtnContinuarMVP",
-			"btn_MenuHamburguer",
-			"bg_MenuOverlay",
-			"menuOver",
-			"btn_ContinuarOverlay",
-			"btn_VoltarMenuOverlay",
-			"txt_ContinuarOverlay",
-			"txt_VoltarMenuOverlay",
-			"hit_doc_AbaMono",
-			"hit_doc_AbaLote1",
-			"hit_doc_AbaLote2",
-			"btn_doc_Info",
-			"hit_Tool_Calador",
-			"hit_Tool_Espatula",
-			"hit_Tool_Pipeta"
+			"txt_VoltarMenuOverlay"
 		],
 		"subfolders": [
-			{
-				"items": [
-					"SPR_AnLu",
-					"SPR_Helena",
-					"SPR_Sofia",
-					"spr_Leo_CQ"
-				],
-				"subfolders": [],
-				"name": "Characters"
-			},
-			{
-				"items": [
-					"OBJ_Palete1",
-					"OBJ_Barril_Intact_1",
-					"OBJ_Barril_Damaged",
-					"OBJ_Barril_Intact_2",
-					"OBJ_Prancheta",
-					"OBJ_Palete3",
-					"OBJ_Palete2"
-				],
-				"subfolders": [],
-				"name": "Objects"
-			},
 			{
 				"items": [
 					"BG_DocaRececao",
@@ -301,9 +210,24 @@
 					"ui_TextoBntDecisaoSegregar",
 					"btn_Decisao_Relevar",
 					"btn_Decisao_Segregar",
-					"hotspot_Barril_Danificado",
-					"hotspot_Barril_Intacto_1",
-					"hotspot_Barril_Intacto_2"
+					"bg_MenuOverlay",
+					"btn_ContinuarMVP",
+					"btn_ContinuarOverlay",
+					"btn_doc_Info",
+					"btn_IniciarMVP",
+					"btn_MenuHamburguer",
+					"btn_VoltarMenuOverlay",
+					"input_NomeJogador",
+					"menuOver",
+					"popup_AvatarNPC",
+					"popup_BotaoOK",
+					"popup_Fundo",
+					"popup_Texto",
+					"spr_FadeTela",
+					"textoGlobal",
+					"txt_BtnContinuarMVP",
+					"txt_BtnIniciarMVP",
+					"txt_ContinuarOverlay"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -312,13 +236,128 @@
 				"items": [
 					"AJAX",
 					"JSON",
+					"Keyboard",
 					"Mouse",
-					"Touch",
 					"OBJ_DialogController",
-					"Keyboard"
+					"Touch",
+					"LocalStorage"
 				],
 				"subfolders": [],
-				"name": "Systems"
+				"name": "00_SYSTEM"
+			},
+			{
+				"items": [
+					"SPR_AnLu",
+					"SPR_Helena",
+					"spr_Leo_CQ",
+					"SPR_Sofia"
+				],
+				"subfolders": [],
+				"name": "10_CHARACTERS"
+			},
+			{
+				"items": [
+					"OBJ_Barril_Damaged",
+					"OBJ_Barril_Intact_1",
+					"OBJ_Barril_Intact_2",
+					"OBJ_Palete1",
+					"OBJ_Palete2",
+					"OBJ_Palete3",
+					"hotspot_Barril_Danificado",
+					"hotspot_Barril_Intacto_1",
+					"hotspot_Barril_Intacto_2",
+					"SPR_BarricaNoPalete",
+					"SPR_Paleteira"
+				],
+				"subfolders": [],
+				"name": "20_RECEPCAO"
+			},
+			{
+				"items": [
+					"OBJ_Prancheta",
+					"spr_PaginaCoA",
+					"spr_ViraPaginaDireita",
+					"spr_ViraPaginaEsquerda",
+					"hit_doc_AbaLote1",
+					"hit_doc_AbaLote2",
+					"hit_doc_AbaMono",
+					"txt_doc_IndicadorCoA",
+					"btn_doc_Reprovar2",
+					"btn_doc_Aprovar2"
+				],
+				"subfolders": [],
+				"name": "30_DOCUMENTAL"
+			},
+			{
+				"items": [
+					"hotspot_FecharEtiqueta",
+					"ui_EtiquetaQuarentena_Detalhada",
+					"UI_Tag_Quarentena",
+					"UI_Tag_Reprovado"
+				],
+				"subfolders": [],
+				"name": "40_QUARENTENA"
+			},
+			{
+				"items": [
+					"anim_FluxoLaminar",
+					"bg_SalaAmostragem",
+					"hit_Tool_Calador",
+					"hit_Tool_Espatula",
+					"hit_Tool_Pipeta",
+					"hotspot_BotaoCapela",
+					"obj_AmostragemController",
+					"spr_Alcool70",
+					"spr_BandejaFerramentas",
+					"spr_BarricaAberta",
+					"spr_ferramenta_Calador",
+					"spr_ferramenta_Espatula",
+					"spr_ferramenta_Pipeta",
+					"spr_Frasco_Amostra",
+					"ui_Etiqueta_Amostra_Fundo"
+				],
+				"subfolders": [],
+				"name": "50_AMOSTRAGEM"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "80_UI_COMPARTILHADA"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "90_MENU"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "95_FUTURO"
+			},
+			{
+				"items": [
+					"spr_ChecklistHUD",
+					"spr_documento_farmacopeia",
+					"spr_EPI_Luvas",
+					"spr_EPI_Macacao",
+					"spr_EPI_Mascara",
+					"spr_EPI_Oculos",
+					"spr_EPI_Propes",
+					"spr_EPI_Touca",
+					"icone_farmacopeia",
+					"hotspot_BancadaCapela",
+					"hotspot_fechar_farmacopeia",
+					"hotspot_Manometro",
+					"spr_Avatar",
+					"btn_doc_Reprovar",
+					"btn_doc_Aprovar",
+					"bg_Antecamara_expanded",
+					"BGsemitrans",
+					"BTN_doc_CoA1",
+					"BTN_doc_CoA2"
+				],
+				"subfolders": [],
+				"name": "99_LEGADO"
 			}
 		]
 	},
@@ -348,7 +387,7 @@
 	"layouts": {
 		"items": [
 			"lyt_Jogo",
-			"lyl_Amostragem",
+			"lyt_Amostragem",
 			"lyt_MenuMVP"
 		],
 		"subfolders": []
