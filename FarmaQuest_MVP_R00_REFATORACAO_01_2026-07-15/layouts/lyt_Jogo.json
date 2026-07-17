@@ -44,60 +44,6 @@
 							}
 						},
 						{
-							"type": "OBJ_Palete1",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 7,
-							"sid": 666377058321801,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {
-								"Fadein": {
-									"properties": {
-										"fade-in-time": 1,
-										"wait-time": 0,
-										"fade-out-time": 0,
-										"destroy": false,
-										"enabled": false,
-										"live-preview": false
-									}
-								},
-								"Fadeout": {
-									"properties": {
-										"fade-in-time": 0,
-										"wait-time": 0,
-										"fade-out-time": 1,
-										"destroy": true,
-										"enabled": false,
-										"live-preview": false
-									}
-								}
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 782,
-								"y": 211,
-								"width": 224,
-								"height": 72,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"z": 0,
-								"angle": 0
-							}
-						},
-						{
 							"type": "spr_FadeTela",
 							"properties": {
 								"initially-visible": false,
@@ -1873,106 +1819,7 @@
 									"name": "DOC_99_Legado_Inativo",
 									"overriden": 0,
 									"subLayers": [],
-									"instances": [
-										{
-											"type": "btn_doc_Aprovar",
-											"properties": {
-												"left-margin": 0,
-												"right-margin": 0,
-												"top-margin": 0,
-												"bottom-margin": 0,
-												"edges": "stretch",
-												"fill": "stretch",
-												"image-scale-x": 1,
-												"image-scale-y": 1,
-												"initially-visible": true,
-												"origin": "top-left",
-												"seams": "overlap"
-											},
-											"uid": 38,
-											"sid": 734241525086442,
-											"tags": "",
-											"instanceVariables": {},
-											"behaviors": {},
-											"effects": {
-												"AdjustHSL": {
-													"isEnabled": false,
-													"parameters": {
-														"hue": 0,
-														"saturation": 1,
-														"luminosity": 0.7
-													}
-												}
-											},
-											"showing": true,
-											"locked": false,
-											"world": {
-												"x": 680.2128633520856,
-												"y": 121.03600465096332,
-												"width": 115.95854589070058,
-												"height": 38,
-												"originX": 0,
-												"originY": 0,
-												"color": [
-													1,
-													1,
-													1,
-													1
-												],
-												"z": 0,
-												"angle": 0
-											}
-										},
-										{
-											"type": "btn_doc_Reprovar",
-											"properties": {
-												"left-margin": 0,
-												"right-margin": 0,
-												"top-margin": 0,
-												"bottom-margin": 0,
-												"edges": "stretch",
-												"fill": "stretch",
-												"image-scale-x": 1,
-												"image-scale-y": 1,
-												"initially-visible": true,
-												"origin": "top-left",
-												"seams": "overlap"
-											},
-											"uid": 39,
-											"sid": 542679687980360,
-											"tags": "",
-											"instanceVariables": {},
-											"behaviors": {},
-											"effects": {
-												"AdjustHSL": {
-													"isEnabled": false,
-													"parameters": {
-														"hue": 0,
-														"saturation": 1,
-														"luminosity": 0.7
-													}
-												}
-											},
-											"showing": true,
-											"locked": false,
-											"world": {
-												"x": 681.8392730978446,
-												"y": 74.18781923561875,
-												"width": 117.95854589070058,
-												"height": 38,
-												"originX": 0,
-												"originY": 0,
-												"color": [
-													1,
-													1,
-													1,
-													1
-												],
-												"z": 0,
-												"angle": 0
-											}
-										}
-									],
+									"instances": [],
 									"sid": 996792213706625,
 									"effectTypes": [],
 									"isInitiallyVisible": false,
@@ -2703,41 +2550,7 @@
 									"name": "DOC_00_Backdrop",
 									"overriden": 0,
 									"subLayers": [],
-									"instances": [
-										{
-											"type": "BGsemitrans",
-											"properties": {
-												"initially-visible": true,
-												"initial-animation": "Animation 1",
-												"initial-frame": 0,
-												"enable-collisions": true,
-												"live-preview": false
-											},
-											"uid": 58,
-											"sid": 374461958175007,
-											"tags": "",
-											"instanceVariables": {},
-											"behaviors": {},
-											"showing": true,
-											"locked": false,
-											"world": {
-												"x": 1010.6544189453125,
-												"y": 209.16358947753906,
-												"width": 640,
-												"height": 360,
-												"originX": 0.5,
-												"originY": 0.5,
-												"color": [
-													1,
-													1,
-													1,
-													1
-												],
-												"z": 0,
-												"angle": 0
-											}
-										}
-									],
+									"instances": [],
 									"sid": 122713861274354,
 									"effectTypes": [],
 									"isInitiallyVisible": true,
@@ -2994,92 +2807,6 @@
 							"overriden": 0,
 							"subLayers": [],
 							"instances": [
-								{
-									"type": "ui_NpcNameText2",
-									"properties": {
-										"text": "Nome NPC",
-										"enable-bbcode": true,
-										"character-width": 16,
-										"character-height": 16,
-										"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
-										"spacing-data": "",
-										"scale": 0.5,
-										"character-spacing": 0,
-										"line-height": 0,
-										"horizontal-alignment": "left",
-										"vertical-alignment": "top",
-										"wrapping": "word",
-										"initially-visible": false,
-										"origin": "top-left",
-										"read-aloud": false
-									},
-									"uid": 23,
-									"sid": 537685930096420,
-									"tags": "",
-									"instanceVariables": {},
-									"behaviors": {},
-									"showing": true,
-									"locked": false,
-									"world": {
-										"x": -226.08129282531425,
-										"y": 0.28135710797573665,
-										"width": 164.21225396462182,
-										"height": 9.763923632117752,
-										"originX": 0,
-										"originY": 0,
-										"color": [
-											1,
-											1,
-											1,
-											1
-										],
-										"z": 0,
-										"angle": 0
-									}
-								},
-								{
-									"type": "ui_DialogText2",
-									"properties": {
-										"text": "Text",
-										"enable-bbcode": true,
-										"character-width": 16,
-										"character-height": 16,
-										"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
-										"spacing-data": "",
-										"scale": 0.6,
-										"character-spacing": 0,
-										"line-height": 0,
-										"horizontal-alignment": "left",
-										"vertical-alignment": "top",
-										"wrapping": "word",
-										"initially-visible": false,
-										"origin": "top-left",
-										"read-aloud": false
-									},
-									"uid": 22,
-									"sid": 888113082255606,
-									"tags": "",
-									"instanceVariables": {},
-									"behaviors": {},
-									"showing": true,
-									"locked": false,
-									"world": {
-										"x": -291.340924542494,
-										"y": 48.52020438797493,
-										"width": 277.20172365844024,
-										"height": 28.13522406622124,
-										"originX": 0,
-										"originY": 0,
-										"color": [
-											1,
-											1,
-											1,
-											1
-										],
-										"z": 0,
-										"angle": 0
-									}
-								},
 								{
 									"type": "btn_Decisao_Segregar",
 									"properties": {
@@ -3970,8 +3697,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 61.583645541267614,
-								"y": -32.466910135949874,
+								"x": -63,
+								"y": -52,
 								"width": 37,
 								"height": 37,
 								"originX": 0.4594594594594595,
@@ -5166,41 +4893,7 @@
 					"global": true
 				}
 			],
-			"instances": [
-				{
-					"type": "popup_BotaoOK",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 21,
-					"sid": 481649632229322,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 409,
-						"y": 523,
-						"width": 42,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 372423348602580,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
