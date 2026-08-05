@@ -1,0 +1,306 @@
+{
+  "Recepcao_01_BoasVindas": [
+    {
+      "char": "An-Lu",
+      "line": "Olá {PlayerName}! Seja muito bem-vindo(a) à Pharma Virtual. Meu nome é An-Lu, e vou te acompanhar em seus primeiros dias."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Nossa planta é responsável pela produção de diversos medicamentos, e por isso recebemos insumos de muitos fornecedores."
+    },
+    {
+      "char": "An-Lu",
+      "line": "São várias as etapas envolvidas na fabricação de medicamentos, mas o sistema da qualidade farmacêutica deve atuar desde o recebimento dos insumos."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Estes lotes acabaram de chegar, e são de Azitromicina dihidratada, um dos IFAs que utilizamos com frequência na nossa empresa."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Para começarmos, a sua primeira tarefa será inspecionar estes lotes. Isso envolve duas etapas: a inspeção visual e a inspeção documental."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Vamos iniciar pela inspeção visual. Entre estas três barricas, qual apresenta algum desvio relacionado à integridade física?"
+    }
+  ],
+  "Inspecao_Avaria_Encontrada": [
+    {
+      "char": "An-Lu",
+      "line": "Boa observação! Você identificou uma avaria física."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Mesmo um simples amassado pode indicar um problema maior, como uma microfissura ou um lacre comprometido."
+    },
+    {
+      "char": "An-Lu",
+      "line": "De acordo com as Boas Práticas de Fabricação (BPF), o que devemos fazer agora?"
+    }
+  ],
+  "Decisao_Feedback_Incorreto": [
+    {
+      "char": "An-Lu",
+      "line": "Atenção: na indústria farmacêutica, todo desvio identificado deve ser obrigatoriamente registrado, tratado e investigado conforme os procedimentos de qualidade."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Ignorar isso poderia levar um material fora de especificação para a produção."
+    }
+  ],
+  "Decisao_Feedback_Correto": [
+    {
+      "char": "An-Lu",
+      "line": "Exato. Essa é a decisão correta e responsável. Vou notificar a Garantia da Qualidade."
+    }
+  ],
+  "Pos_Segregacao_Helena": [
+    {
+      "char": "Helena",
+      "line": "Bom trabalho ao identificar esta não conformidade. Já estou abrindo o registro e notificando os fornecedores."
+    }
+  ],
+  "Pos_Segregacao_AnLu": [
+    {
+      "char": "An-Lu",
+      "line": "Viu? Cada etapa é um trabalho em equipe. Agora, vamos focar nas duas barricas que restaram."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Seguiremos agora para a análise dos certificados de análise enviados pelos fornecedores."
+    }
+  ],
+  "Doc_Feedback_CoA1_Aprovado": [
+    {
+      "char": "An-Lu",
+      "line": "Perfeito. Este CoA está completo e os resultados estão dentro das especificações. Agora, vamos avaliar o CoA do Lote 2."
+    }
+  ],
+  "Doc_Feedback_CoA2_Reprovado": [
+    {
+      "char": "An-Lu",
+      "line": "Muito bem! O resultado de pureza do Lote 2 está fora da especificação. Isso exige bloqueio documental e investigação antes de qualquer continuidade."
+    }
+  ],
+  "Doc_Feedback_CoA2_Incorreto": [
+    {
+      "char": "An-Lu",
+      "line": "Um momento. Revise com atenção a linha de Pureza (HPLC). O resultado do Lote 2 está abaixo da especificação mínima, então ele não deve seguir como conforme."
+    }
+  ],
+  "Quarentena_01_ExplicacaoEtiqueta": [
+    {
+      "char": "An-Lu",
+      "line": "Antes de movimentarmos o Lote 1, precisamos registrá-lo no sistema da empresa. O registro reúne o nome do insumo, o número do lote, o fornecedor, a data de recebimento e um código interno."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Esse código permite rastrear o material durante as movimentações e as etapas de controle realizadas nesta planta."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Como o lote ainda não foi amostrado nem liberado pelo Controle de Qualidade, ele deve permanecer em quarentena e não pode ser usado na produção."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Agora aplicaremos a etiqueta amarela Q e encaminharemos o material para uma área segregada, com acesso restrito ao pessoal autorizado."
+    }
+  ],
+  "Quarentena_02_CodigoBarras": [
+    {
+      "char": "An-Lu",
+      "line": "Observe o código de barras. Nesta planta, ele vincula a identificação física da barrica ao registro interno do lote."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Na pesagem, a leitura do código ajuda a confirmar o material e a registrar sua movimentação, reduzindo trocas e preservando a rastreabilidade."
+    }
+  ],
+  "Conclusao_Quarentena": [
+    {
+      "char": "An-Lu",
+      "line": "Parabéns! Dos três lotes recebidos, apenas um pôde seguir no fluxo inicial. Isso mostra a importância da inspeção visual e documental no recebimento."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Agora que ela foi inspecionada e sua documentação inicial está correta, ela está oficialmente 'Em Quarentena'. Isso significa que ela está sob controle da nossa fábrica, aguardando os testes internos."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Quarentena de matéria-prima é o status aplicado aos materiais recebidos que permanecem segregados e identificados, sem liberação para uso, até a conclusão da conferência documental, amostragem e aprovação pelo Controle de Qualidade."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Nosso próximo passo é coletar uma amostra para que o Controle de Qualidade possa realizar as análises. Vamos para a Sala de Amostragem."
+    }
+  ],
+  "Conclusao_Quarentena2": [
+    {
+      "char": "An-Lu",
+      "line": "Parabéns! Dos três lotes recebidos, apenas uma barrica foi aprovada na inspeção inicial. Isso é mais comum do que se imagina e mostra a importância deste processo."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Agora que ela foi inspecionada e sua documentação inicial está correta, ela está oficialmente 'Em Quarentena'. Isso significa que ela está sob controle da nossa fábrica, aguardando os testes internos."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Quarentena de matéria-prima é o status aplicado a materiais recebidos que ficam segregados e identificados, sem liberação para uso, até a conclusão da conferência documental, amostragem e aprovação pelo CQ."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Nosso próximo passo é coletar uma amostra para que o Controle de Qualidade possa realizar as análises. Vamos para a Sala de Amostragem."
+    }
+  ],
+  "Amostragem_Inicio": [
+    {
+      "char": "Leo Rossi",
+      "line": "Olá! Eu sou o Leo, responsável pela amostragem hoje. Já estamos na sala limpa."
+    },
+    {
+      "char": "An-Lu",
+      "line": "{PlayerName}, a amostragem é uma das etapas mais críticas. Se coletarmos errado, todo o teste do laboratório será inválido."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Exato. Precisamos garantir que a amostra represente o lote todo. Mas antes, verifique se a pressão da sala está correta no manômetro e ligue a capela de exaustão."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Lembre-se: a pressão positiva garante que nenhum contaminante externo entre na sala quando abrimos a barrica."
+    }
+  ],
+  "Amostragem_Intro_Leo": [
+    {
+      "char": "Leo Rossi",
+      "line": "Olá, An-Lu. O sistema de exaustão já está pronto. Já podemos iniciar a coleta da Azitromicina."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Ótimo, Leo. {PlayerName} está aqui para aprender. Explique por que usamos o calador em vez de uma simples colher."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Com o calador, garantimos uma amostra representativa. Eu perfuro o pó e coleto material do topo, do meio e do fundo da barrica ao mesmo tempo."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Se houver contaminação apenas no fundo do barril, uma coleta de superfície nunca detectaria o erro."
+    }
+  ],
+  "Amostragem_Instrucao_Drag": [
+    {
+      "char": "Leo Rossi",
+      "line": "Agora é com você. Arraste o calador para dentro da barrica para iniciar a coleta."
+    }
+  ],
+  "Amostragem_FimColeta": [
+    {
+      "char": "Leo Rossi",
+      "line": "Perfeito. A amostra de Azitromicina foi coletada usando o calador e já está rotulada."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Vou levar este frasco imediatamente para o Controle de Qualidade. Precisamos rodar a amostra no HPLC para garantir o teor e a pureza."
+    }
+  ],
+  "Amostragem_01_Intro": [
+    {
+      "char": "An-Lu",
+      "line": "Chegamos à sala de amostragem. {PlayerName}, este é o Leo Rossi, o técnico responsável por conduzir a coleta."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Olá! O Lote 1 está em quarentena e agora será amostrado em uma área limpa, com controle para reduzir o risco de contaminação."
+    },
+    {
+      "char": "An-Lu",
+      "line": "A amostragem precisa representar o lote recebido. Se a coleta for feita de forma inadequada, o resultado do Controle de Qualidade pode não refletir a condição real do material."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Antes de abrir a barrica, precisamos ligar a capela de fluxo laminar. Clique no painel da capela para ativar o fluxo de ar."
+    }
+  ],
+  "Amostragem_02_PreparacaoConcluida": [
+    {
+      "char": "Leo Rossi",
+      "line": "Fluxo laminar ativado. Agora temos uma barreira de ar controlada para proteger o material durante a abertura da barrica."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Ótimo. Agora precisamos escolher a ferramenta correta para coletar uma amostra representativa do pó."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Não usamos uma colher comum. Para este tipo de insumo, usamos o calador, que permite coletar material de diferentes profundidades da barrica."
+    }
+  ],
+  "Amostragem_03_ColetaFeita": [
+    {
+      "char": "Leo Rossi",
+      "line": "Perfeito! O calador é a ferramenta correta. Ele permite coletar material do topo, do meio e do fundo da barrica, formando uma amostra mais representativa."
+    },
+    {
+      "char": "An-Lu",
+      "line": "A amostra nunca deve ser devolvida ao lote de origem. Depois de coletada, ela precisa seguir identificada e rastreável até o Controle de Qualidade."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Agora vamos identificar o frasco da amostra antes de encaminhá-lo ao laboratório."
+    }
+  ],
+  "Amostragem_04_Rotulagem": [
+    {
+      "char": "Leo Rossi",
+      "line": "Frasco identificado. A rastreabilidade garante que o laboratório saiba exatamente de qual lote essa amostra veio."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Com a amostra coletada e rotulada, ela pode seguir para o Controle de Qualidade."
+    }
+  ],
+  "Amostragem_Conclusao": [
+    {
+      "char": "Leo Rossi",
+      "line": "Vou levar este frasco ao laboratório para as análises de Controle de Qualidade."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Depois dos ensaios, o CQ emitirá o laudo e registrará os resultados no ERP."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Se tudo estiver conforme, o lote poderá ser liberado da quarentena para uso na produção."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Muito bem, {PlayerName}. Concluímos o fluxo de recebimento, conferência documental e amostragem."
+    }
+  ],
+  "CQ_01_Analise": [
+    {
+      "char": "Leo Rossi",
+      "line": "48 horas depois... Aqui estamos no laboratório de HPLC."
+    },
+    {
+      "char": "Leo Rossi",
+      "line": "Os testes físico-químicos e microbiológicos foram concluídos. O Laudo de Análise (CoA) acabou de sair no sistema. Vamos conferir!"
+    }
+  ],
+  "Almoxarifado_01_Transicao": [
+    {
+      "char": "An-Lu",
+      "line": "O lote foi aprovado pelo Controle de Qualidade, o laudo foi emitido e os resultados foram registrados no ERP, formalizando a liberação da matéria-prima para uso na produção."
+    },
+    {
+      "char": "Almoxarife",
+      "line": "Olá, An-Lu. Acabamos de receber a Ordem de Produção (OP). O lote de Azitromicina que vocês aprovaram já foi separado."
+    },
+    {
+      "char": "An-Lu",
+      "line": "Excelente. O material seguirá agora para a pesagem. Vamos conferir a identificação e registrar as quantidades antes de iniciar o processo de fracionamento."
+    }
+  ]
+}
