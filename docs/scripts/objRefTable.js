@@ -51,11 +51,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Acts.SetBoolVar,
-		C3.Plugins.System.Cnds.LayerVisible,
-		C3.Plugins.Sprite.Acts.SetCollisions,
 		C3.Plugins.Sprite.Acts.SetEffectEnabled,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.AJAX.Acts.Request,
+		C3.Plugins.Sprite.Acts.SetCollisions,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.Json.Acts.Parse,
 		C3.Plugins.AJAX.Exps.LastData,
@@ -67,6 +66,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.IsEffectEnabled,
 		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Behaviors.Sin.Acts.SetEnabled,
+		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.TextBox.Exps.Text,
 		C3.Plugins.Sprite.Acts.StartAnim
 	];
