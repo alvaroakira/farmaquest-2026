@@ -1,0 +1,17 @@
+ZIP testzip: OK
+Entradas no C3P: 404
+JSON inválidos: 0
+Versão do projeto: 0.1.9
+images\spr_frasco_amostra-rotulado-000.png: OK
+images\spr_anlu_apoio-paramentada-000.png: OK
+Avanço diálogo - filhos de topo: 2 (esperado 2)
+Avanço diálogo - 2º filho é Else: True
+Handler pós-diálogo etiqueta Q: OK
+Destino após Lote Aprovado: ['"CUTSCENE_FASE3_01_PCP_OP"']
+Falas Almoxarifado_02_LoteAprovado: 2
+Animações frasco: Animation 1, Rotulado
+Animações AnLu apoio: Neutral, Paramentada
+SIDs duplicados de origem: 9
+SIDs duplicados na saída: 9
+Novas duplicações de SID introduzidas: 0
+SHA256: 729a7408c5bc9a5a9ded4178a7d44402d7d55302b0710e4063562818ed65dc2a
