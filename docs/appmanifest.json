@@ -1,7 +1,7 @@
 {
 	"name": "FarmaQuest_Alpha",
 	"short_name": "FarmaQuest_Alpha",
-	"description": "Jogo educativo 2D sobre recebimento, quarentena e amostragem de insumos farmacêuticos — versão alfa acadêmica.",
+	"description": "Jogo educativo 2D sobre recebimento, quarentena, amostragem e fluxo logístico de insumos farmacêuticos — alpha 0.1.9 hotfix de diálogos, etiqueta Q, paramentação e fluxo CQ.",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "landscape",
